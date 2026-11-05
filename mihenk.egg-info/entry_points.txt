@@ -1,0 +1,2 @@
+[console_scripts]
+mihenk = mihenk.cli:main
