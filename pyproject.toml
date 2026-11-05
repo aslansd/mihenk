@@ -26,6 +26,12 @@ pysindy = ["pysindy>=2.0"]
 provenance = ["daftar>=1.0"]
 test = ["pytest>=7", "pysindy>=2.0"]
 
+[project.urls]
+Homepage = "https://github.com/aslansd/mihenk"
+Repository = "https://github.com/aslansd/mihenk"
+Issues = "https://github.com/aslansd/mihenk/issues"
+Changelog = "https://github.com/aslansd/mihenk/blob/main/CHANGELOG.md"
+
 [project.scripts]
 mihenk = "mihenk.cli:main"
 

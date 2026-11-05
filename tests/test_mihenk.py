@@ -11,8 +11,17 @@ from mihenk.bundle import Bundle
 from mihenk.model import Model, parse_term
 from mihenk.scan import Thresholds, scan
 
-ps = pytest.importorskip("pysindy")
-from mihenk.adapters import pysindy as A  # noqa: E402
+from mihenk.adapters import pysindy as A
+
+try:
+    import pysindy  # noqa: F401
+
+    HAS_PYSINDY = True
+except ImportError:
+    HAS_PYSINDY = False
+
+# only the tests that fit with PySINDy need it; the core checks run on numpy/scipy/sympy alone
+needs_pysindy = pytest.mark.skipif(not HAS_PYSINDY, reason='needs PySINDy: pip install "mihenk[pysindy]"')
 
 
 # ----------------------------------------------------------------- model
@@ -70,6 +79,7 @@ def _fit(system, threshold, degree=None, noise=0.0, n_traj=1, seed=0):
     return b, sindy, model
 
 
+@needs_pysindy
 def test_from_pysindy_matches_pysindy_predictions():
     b, sindy, model = _fit("lorenz", 0.5)
     X = b.xs[0][:100]
@@ -77,6 +87,7 @@ def test_from_pysindy_matches_pysindy_predictions():
 
 
 # ----------------------------------------------------------------- scans
+@needs_pysindy
 def test_clean_lorenz_is_clean():
     b, sindy, _ = _fit("lorenz", 0.5)
     r = mihenk.scan_pysindy(sindy, b.xs, b.ts, meta={"true_equations": b.true_equations})
@@ -85,6 +96,7 @@ def test_clean_lorenz_is_clean():
     assert not r.has_errors
 
 
+@needs_pysindy
 def test_on_cycle_equifinality_finds_sparser_law():
     b, sindy, model = _fit("stuart_landau_on_cycle", 0.05)
     r = scan(b, model)
@@ -93,6 +105,7 @@ def test_on_cycle_equifinality_finds_sparser_law():
     assert "x' = -y" in eq[0].what
 
 
+@needs_pysindy
 def test_missing_library_term_is_underfit():
     b, sindy, model = _fit("duffing", 0.05, degree=2)
     r = scan(b, model)
@@ -106,6 +119,7 @@ def test_wrong_sign_rollout_trap():
     assert "ROLLOUT_TRAP" in r.flagged()
 
 
+@needs_pysindy
 def test_noise_spurious_constant_flagged():
     b, sindy, _ = _fit("lorenz", 0.1, noise=0.05)
     r = mihenk.scan_pysindy(sindy, b.xs, b.ts)
@@ -143,6 +157,7 @@ def _cli(*args, cwd):
     return subprocess.run([sys.executable, "-m", "mihenk.cli", *args], cwd=cwd, capture_output=True, text=True)
 
 
+@needs_pysindy
 def test_cli_end_to_end(tmp_path):
     assert _cli("synth", "stuart_landau_on_cycle", "-o", "b.npz", cwd=tmp_path).returncode == 0
     r = _cli("fit", "b.npz", "-o", "m.json", "--degree", "3", "--threshold", "0.05", cwd=tmp_path)

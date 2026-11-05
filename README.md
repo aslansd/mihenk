@@ -4,6 +4,9 @@
 
 *Mihenk* (Turkish *mihenk taşı*, Azerbaijani *mehək daşı*, Persian *mahak* محک) is the touchstone used to test whether gold is real.
 
+[Install](INSTALL.md) · [Testing](TESTING.md) · [Roadmap](ROADMAP.md) ·
+[Publishing](PUBLISHING.md) · [Changelog](CHANGELOG.md)
+
 ```bash
 pip install "mihenk[pysindy]"
 ```
@@ -116,6 +119,9 @@ Over these runs:
 - 3 of those 175 runs received a warning. All three are single mild-noise Lorenz trajectories lying close to a quadric surface, where a constant term appears in some refits.
 
 ## Limits (read these)
+
+What comes next is in [ROADMAP.md](ROADMAP.md).
+
 
 - **Research prototype (alpha).** Thresholds are calibrated on mihenk's own toy systems, not yet on experimental data. Treat them as starting points.
 - **mihenk rules out named failures. It cannot prove that an equation is the law.** No findings means that no tested failure explains the equation.

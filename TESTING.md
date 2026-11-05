@@ -1,0 +1,121 @@
+# Testing mihenk
+
+There are two layers. Each catches a different kind of mistake.
+
+| layer | what it is | needs | catches |
+|---|---|---|---|
+| unit and integration tests | `tests/test_mihenk.py` | mihenk + pytest (+ PySINDy for 6 tests) | broken code, broken contracts, broken CLI |
+| synthetic validation | `mihenk validate` | mihenk + PySINDy | detectors that stopped finding the failures they name, or started flagging correct laws |
+
+Neither layer uses experimental data yet. The thresholds are calibrated on
+toy systems ([ROADMAP.md](ROADMAP.md)).
+
+## 1. The test suite
+
+```bash
+pip install -e ".[test]"
+python -m pytest -q
+```
+
+24 tests, under a minute on a laptop CPU.
+
+- With PySINDy installed, all 24 must pass.
+- Without PySINDy, 18 pass and 6 are skipped with the reason `needs PySINDy`.
+  That is expected. The core checks need only numpy, scipy and sympy, and they
+  are tested on their own.
+- If you see `1 skipped` and nothing else, you have a test file older than
+  this one, which skipped the whole module when PySINDy was missing. Update
+  `tests/test_mihenk.py`.
+
+What the suite pins down:
+
+- **Model contract.**
+  - Text equations in every accepted form: `x' =`, `dx/dt =`, `d(x)/dt =`,
+    `x_dot =`, `(x)' =`, and PySINDy's own `model.print()` output.
+  - Implicit products such as `x z`, and powers written `x^2`.
+  - Multi-letter names are not split into letters (`theta`, `omega`), and a
+    name starting with `d` (`delta`) is not read as a derivative.
+  - Unknown symbols are rejected.
+  - JSON round-trip.
+- **Bundle contract.** `.npz` round-trip with several trajectories and the
+  true law in `meta`. Non-increasing times are rejected.
+- **PySINDy adapter.** A model read through mihenk predicts exactly what
+  PySINDy predicts.
+- **Detectors.**
+  - Clean Lorenz is clean, and ground truth agrees.
+  - Limit-cycle data gives an `EQUIFINALITY` error that names `x' = -y`.
+  - A library without `x^3` gives `UNDERFIT` on Duffing's `y'`.
+  - A hand-edited sign gives `ROLLOUT_TRAP`.
+  - A spurious constant from noisy Lorenz is flagged.
+- **Tiers.** Without a refit callable, the tier-1 checks are *not assessed*,
+  never clean.
+- **Thresholds.** Overrides work, and an unknown threshold name is an error.
+- **Reports.** `report.json` carries the version, and `report.html` is a full
+  page with the findings.
+- **CLI.**
+  - `synth` → `fit` → `scan` end to end.
+  - Exit status 1 on errors, 0 when clean, 2 on a usage error (an equation
+    whose variables do not match the data).
+
+## 2. Synthetic validation
+
+```bash
+mihenk validate                 # 14 cases, about 10 seconds
+mihenk validate --quick         # 13 cases, skips the slow heavy-noise case
+mihenk validate --seeds 20      # every case over seeds 0-19, about 6 minutes
+```
+
+Each case simulates a system with a known law and fits it with PySINDy (or
+uses a hand-written equation). It then scans the result and compares mihenk's
+tier-0/1 flags with what the case was built to show. The ground-truth
+comparison (tier 2) is printed next to it. The pass rules are:
+
+| case kind | passes when |
+|---|---|
+| built to be clean, and the fit found the true law | no **errors** (warnings are counted separately as false warnings) |
+| built to be clean, but the fit found a wrong law | at least one flag. A wrong law that nothing flags is the worst outcome |
+| built to show a failure | the expected flag fires (`a \| b` in the output means any one of them) |
+
+The multi-seed summary has three columns:
+
+- `passed`: runs that passed out of all runs.
+- `warned (clean)`: runs where a correct law received a warning.
+- `wrong law, flagged`: runs where SINDy returned a wrong law and mihenk
+  flagged it.
+
+The README quotes the 20-seed table for 0.1.0:
+
+- 280/280 runs pass.
+- All 91 wrong laws are flagged.
+- No correct law gets an error.
+- 3 of 175 correct-law runs get a warning.
+
+**Caveat.** Thresholds were adjusted while looking at seeds 0–9, so seeds
+10–19 are the only part of that table that played no role in calibration.
+A cleaner calibration/test split is on the [roadmap](ROADMAP.md).
+
+### When a validation run fails
+
+1. Rerun the single case with its seed and read the full report:
+   ```python
+   from mihenk import validate
+   C = {c.name: c for c in validate.CASES}
+   r = validate.run_case(C["lorenz_noise1"], seed=6)
+   print(r.report.render_text())
+   ```
+2. Decide whether mihenk is wrong, or whether the case expectation is wrong.
+   In 0.1 development, three apparent failures were mihenk being right:
+   - SINDy found a wrong law on "clean" data, and mihenk flagged it.
+   - A Lorenz trajectory lay near a quadric surface.
+   - A noisy fit was flagged by different detectors than the ones listed.
+3. Change a threshold only with a reason that holds beyond the failing seed,
+   and rerun `--seeds 20` afterwards.
+
+## Before a release
+
+1. `python -m pytest -q` is green, with PySINDy installed (24 passed).
+2. `mihenk validate --seeds 20` is green. If a detector or threshold changed,
+   paste the new table into the README.
+3. Build the wheel, install it in a fresh virtualenv **without** PySINDy, and
+   run a tier-0 scan there. Then check the wheel again with PySINDy. See
+   [PUBLISHING.md](PUBLISHING.md).

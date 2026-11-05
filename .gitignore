@@ -5,3 +5,7 @@ __pycache__/
 .DS_Store
 .env
 .ipynb_checkpoints/
+build/
+.pytest_cache/
+.daftar/
+__MACOSX/
