@@ -1,11 +1,35 @@
 # Changelog
 
-## Unreleased
+## 0.1.1 — 2026-11-07
 
-These changes are on GitHub only. Nothing inside the wheel changed, so there
-is no new PyPI release; they ship with the next version.
+First contact with experimental data, and the bug it exposed.
+
+### Fixed
+- **Rollout R² on segments where the system barely moves.** Short and full
+  rollouts were scored against the held-out segment's own spread. On a
+  recording that ends with the pendulum at rest, that gave R² = −2×10²⁰.
+  Rollouts are now scored against the variance of the whole data set. No flag
+  changed in any synthetic case: the 20-seed validation is identical to
+  0.1.0. No flag changed in the pendulum analyses either. A regression test
+  was added.
 
 ### Added
+- **`experiments/pendulum/`: a pre-registered test on the Brunton lab's
+  experimental single pendulum** (MIT-licensed data, attributed). It
+  contains:
+  - `PROTOCOL.md`, with three analyses and seven predictions, committed
+    before any fit;
+  - `prepare.py`, `run.py` and an exploratory `explore_lag.py`;
+  - the derived bundles;
+  - `RESULTS.md`, scoring every prediction: 5 held, 1 partly held, 1 failed.
+
+  The tests found a 0.7–1.4 ms lag in the lab's filtered velocity signal, and
+  three things mihenk misses. Those now lead the roadmap.
+- `ROADMAP.md` reordered for 0.2 around what the experiment showed.
+
+### Earlier, on GitHub only (since 0.1.0)
+
+#### Added
 - `INSTALL.md`: extras, versions, installing on an unreliable connection
   (including offline installs from downloaded wheels), and editable installs.
 - `TESTING.md`: the test suite, the synthetic validation and its pass rules,
@@ -16,7 +40,7 @@ is no new PyPI release; they ship with the next version.
 - A line in the README linking these documents.
 - Project URLs in `pyproject.toml`. They reach PyPI with the next release.
 
-### Fixed
+#### Fixed
 - **Tests no longer skip the whole module when PySINDy is missing.** Only the
   6 tests that fit with PySINDy are skipped (`18 passed, 6 skipped`), so the
   core checks are tested on numpy, scipy and sympy alone. Before this, a fresh

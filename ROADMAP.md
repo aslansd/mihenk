@@ -55,23 +55,66 @@ A near relation among library terms (one Lotka–Volterra orbit lies within
 0.14% of an ellipse) now warns only when it actually leaves the equation's
 coefficients loosely determined.
 
-## Next: 0.2 — first contact with experimental data
+### 0.1.1 — first contact with experimental data
 
-Every 0.1 threshold was set on toy systems. The next release should change
-that before it adds many features.
+- **A pre-registered test on a real pendulum**
+  ([experiments/pendulum](experiments/pendulum/RESULTS.md)). It uses the
+  Brunton lab's experimental single pendulum. Three analyses were fixed, with
+  seven predictions, and committed before any fit:
+  - **Results:** 5 held, 1 partly held, 1 failed.
+  - **The gravity term** came out within 0.6% of the lab's estimate, and
+    mihenk did not flag it.
+  - **Small swings:** mihenk reported `EQUIFINALITY` errors, as predicted.
+  - **A real sensor problem.** mihenk's warnings on θ' led to a 0.7–1.4 ms
+    lag in the lab's filtered velocity signal. That lag hid the damping term.
+- **Fixed a bug the test exposed.** Rollout R² was scored against a held-out
+  segment's own spread, which is meaningless when the system is at rest.
+- **What it missed:**
+  - a law that injects energy;
+  - a long rollout that drifts;
+  - a missing degree-5 term (sin θ around π).
 
-- **Run mihenk on public experimental data with a known law.** Good
-  candidates have well-understood physics and real noise, such as a damped
-  pendulum, coupled oscillators or a chemical oscillator. Report every miss,
-  as ayna's VALIDATION.md does.
-- **A calibration/test split for validation.** Fix the thresholds on one set
-  of seeds and systems. Record that split in a commit before running the
-  other set, and quote only the other set. 0.1 thresholds were adjusted while
-  looking at seeds 0–9.
-- **More systems in `synth`.** A Rössler attractor, a forced Duffing
-  oscillator, a pendulum (with `sin` terms, outside polynomial libraries) and
-  a higher-dimensional system, so the detectors are not tuned to
-  two-variable polynomials.
+  These lead the 0.2 plan below.
+
+## Next: 0.2 — what the pendulum asked for
+
+Ordered by what the experimental test showed, then by what was already planned.
+
+- **`KINEMATIC_MISMATCH`.** Let the user declare kinematic pairs (`theta' =
+  omega`). Then check that the discovered equation respects them, and
+  estimate the lag between a measured derivative and the differentiated
+  variable. On the pendulum this one check would have named the problem
+  directly: "your ω lags dθ/dt by 0.73 ms". Instead it surfaced only as
+  unstable extra terms.
+- **Declared physical properties.** Optional statements such as "this system
+  loses energy" (with an energy function) or "this quantity is conserved".
+  mihenk then checks them along the data and along rollouts. On the
+  pendulum, an equation whose +0.44 sin ω term injects energy passed without
+  comment.
+- **A chaos-aware long-rollout check.** Run twin rollouts from nearby starts.
+  If they stay together, the system is not chaotic on this time scale, and
+  full-length R² becomes a fair test. Otherwise keep comparing only spread
+  and mean. One of the pendulum's long rollouts had R² 0.73 and was not
+  flagged.
+- **`UNDERFIT` two degrees out, or by parity.** sin θ is odd about π, so the
+  first term a cubic misses is degree 5, and a one-degree search cannot see
+  it.
+- **Centred relation search.** When a variable barely moves around a large
+  offset (θ ≈ 3.14 ± 0.07), unit-norm columns make θ look like the constant
+  term, and the relations table reads "1 ≈ θ". Centring columns first would
+  report the relation that matters (sin θ ≈ π − θ).
+- **A second experimental system** with a different structure, such as a
+  chemical oscillator or coupled oscillators, pre-registered the same way.
+- **A calibration/test split for the synthetic validation.** Fix the
+  thresholds on one set of seeds and systems. Record that split in a commit
+  before running the other set, and quote only the other set. 0.1 thresholds
+  were adjusted while looking at seeds 0–9.
+- **More systems in `synth`:**
+  - a Rössler attractor;
+  - a forced Duffing oscillator;
+  - a pendulum with dry friction, a velocity lag and an angle offset, the
+    three effects the experiment showed;
+  - a higher-dimensional system.
 - **`mihenk design`.** Before an experiment, simulate a known law at your
   planned sampling rate, duration, noise level and number of trajectories,
   and ask whether the discovery can recover it at all. This is the idea of
@@ -90,8 +133,9 @@ that before it adds many features.
   - **Weak-form and PDE libraries.** `WeakPDELibrary` and `PDELibrary` are
     rejected in 0.1. PDEs need space as well as time in the bundle, and an
     integral form over both.
-  - **Non-polynomial libraries.** Fourier and custom libraries parse today,
-    but are not validated.
+  - **Non-polynomial libraries.** Fourier libraries work: the pendulum test
+    used `PolynomialLibrary + FourierLibrary`. Custom libraries parse, but are
+    not validated.
 - **`DIMENSIONALLY_INCONSISTENT`.** Optional units per variable, checked
   term by term.
 - **`ILL_CONDITIONED`.** Structural stability of the formula under small
@@ -106,7 +150,7 @@ that before it adds many features.
   statistics are screening numbers. Non-overlapping windows or a corrected
   variance would make them proper tests.
 
-## Known limits in 0.1
+## Known limits in 0.1.1
 
 - One mild-noise Lorenz trajectory in 20 lies close to a quadric surface. A
   constant term then appears in some refits, and mihenk warns. The law is
@@ -114,4 +158,9 @@ that before it adds many features.
   false alarm.
 - `ROLLOUT_TRAP` compares long-run spread and mean for chaotic systems. That
   is a coarse check, and a model with the wrong attractor shape but the right
-  moments passes it.
+  moments passes it. The same coarseness lets a drifting non-chaotic rollout
+  pass (pendulum, segment 2, R² 0.73).
+- No check knows physics the user has not declared. An equation that injects
+  energy into a free pendulum is not flagged as such.
+- A recording that ends at rest is used as held-out data, although it tests
+  nothing. mihenk does not yet warn about held-out segments without motion.

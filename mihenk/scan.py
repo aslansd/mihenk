@@ -500,6 +500,7 @@ def _check_rollout(ctx: _Context, findings, checks):
     lo, hi = allx.min(axis=0), allx.max(axis=0)
     span = np.where(hi > lo, hi - lo, 1.0)
     bounds = (lo - th.bounds_factor * span, hi + th.bounds_factor * span)
+    var_all = allx.var(axis=0)  # rollouts are scored on the scale of the whole data set
     flagged = False
     short_r2, statuses, rows = [], [], []
     for k, (x, t) in enumerate(ctx.test):
@@ -508,7 +509,7 @@ def _check_rollout(ctx: _Context, findings, checks):
         y, status = N.rollout(m, x[0], t[:h], bounds)
         statuses.append(status)
         ok = np.all(np.isfinite(y), axis=1)
-        r = N.r2(x[:h][ok], y[ok]) if ok.sum() > 2 else float("nan")
+        r = N.r2(x[:h][ok], y[ok], var=var_all) if ok.sum() > 2 else float("nan")
         short_r2.append(r)
         rows.append([f"test segment {k}", "short", h, status, r])
     # long rollouts from the start of each trajectory
@@ -524,7 +525,7 @@ def _check_rollout(ctx: _Context, findings, checks):
             bad = (ratio < th.stats_std_ratio) | (ratio > 1 / th.stats_std_ratio) | (mean_shift > th.stats_mean_shift)
             if bad.any():
                 stats_bad.append((k, [m.variables[q] for q in np.where(bad)[0]], ratio, mean_shift))
-            rows.append([f"trajectory {k}", "full", len(t), status, N.r2(x[ok], y[ok])])
+            rows.append([f"trajectory {k}", "full", len(t), status, N.r2(x[ok], y[ok], var=var_all)])
         else:
             rows.append([f"trajectory {k}", "full", len(t), status, float("nan")])
     ctx.details["Rollouts (integrating the equation)"] = {

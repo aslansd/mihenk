@@ -88,9 +88,19 @@ def lstsq(A: np.ndarray, b: np.ndarray):
     return coef, float(np.linalg.norm(A @ coef - b))
 
 
-def r2(y: np.ndarray, yhat: np.ndarray) -> float:
+def r2(y: np.ndarray, yhat: np.ndarray, var=None) -> float:
+    """Coefficient of determination.
+
+    ``var`` (per-variable variance) sets the scale instead of ``y``'s own
+    spread. Rollouts pass the variance of the whole data set, so a short
+    segment where the system barely moves (a pendulum at rest) is judged on
+    the scale of the data, not on its own near-zero spread.
+    """
     y = np.asarray(y)
-    ss = np.sum((y - y.mean(axis=0)) ** 2)
+    if var is None:
+        ss = np.sum((y - y.mean(axis=0)) ** 2)
+    else:
+        ss = float(np.sum(np.asarray(var, float) * y.shape[0]))
     if ss == 0:
         return float("nan")
     return float(1 - np.sum((y - yhat) ** 2) / ss)

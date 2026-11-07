@@ -180,3 +180,13 @@ def test_cli_usage_error(tmp_path):
     (tmp_path / "eq.txt").write_text("x' = -10 x\n")
     r = _cli("scan", "b.npz", "--model", "eq.txt", cwd=tmp_path)
     assert r.returncode == 2 and "do not match" in r.stderr
+
+
+def test_rollout_r2_on_resting_segment_is_finite():
+    """A held-out segment where the system is at rest must not give a meaningless R² (0.1.0 bug)."""
+    t = np.arange(0, 20, 0.01)
+    x = np.column_stack([np.exp(-0.5 * t) * np.cos(2 * t), np.exp(-0.5 * t) * (-2 * np.sin(2 * t))])
+    x[int(0.8 * len(t)):] = x[int(0.8 * len(t))]          # at rest for the last 20%
+    m = Model.from_text("x' = y\ny' = -4 x - y")
+    r = scan(Bundle([x], [t], ["x", "y"]), m)
+    assert r.metrics["rollout_r2_short"] > -10

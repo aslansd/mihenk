@@ -118,15 +118,41 @@ Over these runs:
 - In the 9 cases built to come out clean, none of the 175 correct-law runs received an error.
 - 3 of those 175 runs received a warning. All three are single mild-noise Lorenz trajectories lying close to a quadric surface, where a constant term appears in some refits.
 
+## Experimental data
+
+mihenk was tested on the Brunton lab's experimental single pendulum, with the
+predictions committed before any fit
+([protocol](experiments/pendulum/PROTOCOL.md),
+[results](experiments/pendulum/RESULTS.md)). The reference law is
+`omega' = 64.22 sin(theta) - 0.0672 omega`. Of seven predictions, 5 held, 1
+partly held and 1 failed. In brief:
+
+- **Large swings, informed library.** SINDy found sin θ = 63.82, and mihenk
+  left that term alone. It warned about extra terms in θ' (which should be
+  exactly ω). Following that up showed the lab's filtered velocity signal
+  lags the angle by 0.7–1.4 ms. That lag also cancelled most of the damping,
+  which is why SINDy missed it.
+- **Small swings.** sin θ ≈ π − θ, so mihenk reported `EQUIFINALITY` errors
+  and a sparser equally good law, as predicted.
+- **What mihenk missed:**
+  - an equation that injects energy;
+  - a long rollout that drifts (R² 0.73);
+  - that a cubic library lacks sin θ. The first missing term is degree 5,
+    beyond `UNDERFIT`'s one-degree search, and within the observed swings
+    the cubic is a fine law anyway.
+
+  These lead the [roadmap](ROADMAP.md).
+
 ## Limits (read these)
 
 What comes next is in [ROADMAP.md](ROADMAP.md).
 
 
-- **Research prototype (alpha).** Thresholds are calibrated on mihenk's own toy systems, not yet on experimental data. Treat them as starting points.
+- **Research prototype (alpha).** Thresholds are calibrated on mihenk's own toy systems and were not changed after the first experimental test. Treat them as starting points.
 - **mihenk rules out named failures. It cannot prove that an equation is the law.** No findings means that no tested failure explains the equation.
 - ODE models only, without control inputs. PDEs and weak-form libraries (`WeakPDELibrary`) are not supported yet.
-- The polynomial library is assumed when you pass a text equation. With a PySINDy model, mihenk uses its real library.
+- The polynomial library is assumed when you pass a text equation. With a PySINDy model, mihenk uses its real library (polynomial and Fourier libraries are tested).
+- mihenk checks only physics you can see in the data. It does not know that a free pendulum must lose energy unless a check for that exists (see the roadmap).
 - The integral form uses overlapping windows, so F statistics are screening statistics, not exact tests.
 - For chaotic systems a low full-length rollout R² is expected. mihenk compares long-run spread and mean instead.
 

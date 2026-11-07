@@ -1,0 +1,537 @@
+{
+  "mihenk_version": "0.1.1",
+  "name": "pendulum A: informed library, large swings",
+  "source": "pysindy",
+  "equation": "theta' = 0.134 - 0.04273 theta + 0.9999 omega\nomega' = 0.4616 - 0.1941 theta + 63.82 sin(theta) - 0.2435 cos(theta) + 0.4428 sin(omega)",
+  "summary": "4 warning(s): the equation may be real, but parts of it are not yet supported",
+  "metrics": {
+    "variables": 2,
+    "trajectories": 6,
+    "samples": 55001,
+    "active_terms": 8,
+    "derivative_r2": 0.9850370790134295,
+    "integral_r2": 0.9997380195449637,
+    "library_relations": 0,
+    "rollout_r2_short": 0.9998477348232357,
+    "structure_reproduced": 0.1,
+    "structure_under_variants": 0.0,
+    "distinct_structures": 2
+  },
+  "findings": [
+    {
+      "id": "DERIVATIVE_ARTIFACT",
+      "severity": "warning",
+      "tier": 0,
+      "what": "Coefficients that move by more than 30% when estimated derivative-free: the constant term +0.4616 -> +0.1457, theta -0.1941 -> -0.08566, sin(omega) +0.4428 -> +0.2656.",
+      "where": "omega'",
+      "fix": "Refit with smoothed or weak-form derivatives (e.g. PySINDy's SmoothedFiniteDifference) and report the derivative-free coefficients next to the discovered ones.",
+      "evidence": {
+        "sign_flips": {},
+        "drifts": {
+          "1": [
+            0.46156106749331416,
+            0.14573232932121982,
+            0.6842620845109931
+          ],
+          "theta": [
+            -0.1940775038575003,
+            -0.08565580582465883,
+            0.5586515483651786
+          ],
+          "sin(omega)": [
+            0.4428324580035458,
+            0.2656114288759104,
+            0.4001988244642546
+          ]
+        }
+      }
+    },
+    {
+      "id": "WEAK_TERM",
+      "severity": "warning",
+      "tier": 0,
+      "what": "Dropping the constant term (F = 0.0842), theta (F = 0.291) barely changes the fit (F below 10): the data cannot tell the equation with these terms from the equation without them.",
+      "where": "omega'",
+      "fix": "Do not interpret these terms without more or less noisy data; a sparser equation fits as well.",
+      "evidence": {
+        "terms": {
+          "1": 0.08420952367291003,
+          "theta": 0.2907466850290279
+        }
+      }
+    },
+    {
+      "id": "UNSTABLE_STRUCTURE",
+      "severity": "warning",
+      "tier": 1,
+      "what": "Refitting on 30 resamples of your data changes this equation's terms. Terms in the equation that often disappear: the constant term (43%), theta (43%). Terms absent from the equation that often appear: sin(theta) (80%) (share of refits). The structure depends on which part of the data the discovery saw.",
+      "where": "theta'",
+      "fix": "Treat these terms as tentative; check them on independent trajectories, or with more or less noisy data.",
+      "evidence": {
+        "disappearing": {
+          "1": 0.43333333333333335,
+          "theta": 0.43333333333333335
+        },
+        "appearing": {
+          "sin(theta)": 0.8
+        },
+        "refits": 30
+      }
+    },
+    {
+      "id": "FORKING_PATHS",
+      "severity": "warning",
+      "tier": 1,
+      "what": "The equation's structure comes back under only 0 of 5 defensible analysis variants (2 distinct structures in total). Which law you report depends on analysis choices.",
+      "where": "analysis",
+      "fix": "Report the variants, or pick the analysis on held-out data before looking at the equation.",
+      "evidence": {
+        "share": 0.0,
+        "distinct": 2
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "EQUIFINALITY",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "DERIVATIVE_ARTIFACT",
+      "tier": 0,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "WEAK_TERM",
+      "tier": 0,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "UNDERFIT",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "ROLLOUT_TRAP",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "UNSTABLE_STRUCTURE",
+      "tier": 1,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "FORKING_PATHS",
+      "tier": 1,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "RECOVERY",
+      "tier": 2,
+      "status": "not_assessed",
+      "reason": "no true equations (synthetic data only)"
+    }
+  ],
+  "notes": [
+    "held-out data: held-out trajectories (val)",
+    "derivative-free reference: integral form over windows of 50 samples",
+    "candidate library for alternatives: 7 terms"
+  ],
+  "thresholds": {
+    "equifinal_tol": 0.05,
+    "nullspace_tol": 0.01,
+    "coef_rel_se": 0.1,
+    "weak_term_f": 10.0,
+    "deriv_rel_warning": 0.3,
+    "underfit_gain": 0.3,
+    "underfit_f": 100.0,
+    "underfit_share": 0.01,
+    "rollout_fit_r2": 0.9,
+    "rollout_r2": 0.5,
+    "rollout_horizon": 0.1,
+    "bounds_factor": 2.0,
+    "stats_std_ratio": 0.5,
+    "stats_mean_shift": 0.5,
+    "n_boot": 30,
+    "n_blocks": 10,
+    "stable_freq_warning": 0.6,
+    "stable_freq_error": 0.3,
+    "new_term_freq": 0.5,
+    "fork_min_share": 0.5,
+    "gt_coef_rel": 0.1
+  },
+  "details": {
+    "Coefficients by estimation method": {
+      "columns": [
+        "equation",
+        "term",
+        "note",
+        "as discovered",
+        "derivative-free",
+        "finite_difference",
+        "savgol_7",
+        "savgol_41"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "1",
+          "",
+          0.1339929603903946,
+          0.14089118443567417,
+          0.14083372438675582,
+          0.14083216207842827,
+          0.14083616513623542
+        ],
+        [
+          "theta'",
+          "theta",
+          "",
+          -0.04273490689656275,
+          -0.04488492172989496,
+          -0.04486750987347797,
+          -0.044867229882684864,
+          -0.044868776834404704
+        ],
+        [
+          "theta'",
+          "omega",
+          "",
+          0.9999134645748038,
+          0.9999286462912017,
+          0.9999053429592349,
+          0.9999146838375647,
+          0.9999136955031974
+        ],
+        [
+          "omega'",
+          "1",
+          "",
+          0.46156106749331416,
+          0.14573232932121982,
+          0.2554538453936907,
+          0.2516164338466094,
+          0.25676396319738776
+        ],
+        [
+          "omega'",
+          "theta",
+          "",
+          -0.1940775038575003,
+          -0.08565580582465883,
+          -0.1208636796116836,
+          -0.11964043027440745,
+          -0.12125294790691096
+        ],
+        [
+          "omega'",
+          "sin(theta)",
+          "",
+          63.82237669901266,
+          63.96153919768472,
+          63.916910714833456,
+          63.91897170503758,
+          63.917043044671104
+        ],
+        [
+          "omega'",
+          "cos(theta)",
+          "",
+          -0.24346416201484092,
+          -0.1932547550871645,
+          -0.19487484879334557,
+          -0.19486570924110372,
+          -0.19473748596079105
+        ],
+        [
+          "omega'",
+          "sin(omega)",
+          "",
+          0.4428324580035458,
+          0.2656114288759104,
+          0.3519900036700142,
+          0.3521436280218362,
+          0.35102980478050394
+        ]
+      ],
+      "caption": "Least-squares refits of each equation's own term set. Agreement means the coefficient does not depend on how derivatives were estimated."
+    },
+    "Term strength (derivative-free)": {
+      "columns": [
+        "equation",
+        "term",
+        "F for dropping it",
+        "share of signal lost"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "1",
+          7589.654960961517,
+          0.0035830792156439596
+        ],
+        [
+          "theta'",
+          "theta",
+          7917.498795467296,
+          0.0036961285530806944
+        ],
+        [
+          "theta'",
+          "omega",
+          211508073.85832864,
+          0.9967563034814648
+        ],
+        [
+          "omega'",
+          "1",
+          0.08420952367291003,
+          3.0769522232101486e-07
+        ],
+        [
+          "omega'",
+          "theta",
+          0.2907466850290279,
+          1.062341265736201e-06
+        ],
+        [
+          "omega'",
+          "sin(theta)",
+          115752.15827680944,
+          0.10134482738693201
+        ],
+        [
+          "omega'",
+          "cos(theta)",
+          13.010100718450985,
+          4.746782648533934e-05
+        ],
+        [
+          "omega'",
+          "sin(omega)",
+          215.3191318162444,
+          0.0007682845285930615
+        ]
+      ],
+      "caption": "Large F means removing the term clearly hurts the fit. Windows overlap by half, so F is a screening statistic, not an exact test."
+    },
+    "Best left-out term per equation": {
+      "columns": [
+        "equation",
+        "term",
+        "in library",
+        "residual reduction",
+        "share of signal",
+        "F"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "sin(theta)",
+          "yes",
+          0.01879575755191465,
+          6.043746681557504e-05,
+          84.55132283534954
+        ],
+        [
+          "omega'",
+          "omega^3",
+          "no",
+          0.011299193714174538,
+          0.000180423298229057,
+          50.20416652959248
+        ]
+      ],
+      "caption": "For each equation, the single term not in it that most reduces the derivative-free residual (searching the library and one polynomial degree beyond it)."
+    },
+    "Rollouts (integrating the equation)": {
+      "columns": [
+        "segment",
+        "horizon",
+        "samples",
+        "status",
+        "R\u00b2"
+      ],
+      "rows": [
+        [
+          "test segment 0",
+          "short",
+          916,
+          "ok",
+          0.9999589834511448
+        ],
+        [
+          "test segment 1",
+          "short",
+          916,
+          "ok",
+          0.9997364861953266
+        ],
+        [
+          "trajectory 0",
+          "full",
+          9167,
+          "ok",
+          0.9902773202298618
+        ],
+        [
+          "trajectory 1",
+          "full",
+          9167,
+          "ok",
+          0.7327824350890162
+        ],
+        [
+          "trajectory 2",
+          "full",
+          9167,
+          "ok",
+          0.9971669989981122
+        ],
+        [
+          "trajectory 3",
+          "full",
+          9167,
+          "ok",
+          0.9889554850633051
+        ],
+        [
+          "trajectory 4",
+          "full",
+          9167,
+          "ok",
+          0.999151252018865
+        ],
+        [
+          "trajectory 5",
+          "full",
+          9166,
+          "ok",
+          0.9755141361907176
+        ]
+      ],
+      "caption": "Short rollouts start each held-out segment; full rollouts integrate each trajectory from its first sample. For chaotic systems a low full-length R\u00b2 is expected; the long-run statistics check compares spread and mean instead."
+    },
+    "Term frequency across resampled refits": {
+      "columns": [
+        "equation",
+        "term",
+        "in equation",
+        "share of refits containing it"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "1",
+          "yes",
+          0.43333333333333335
+        ],
+        [
+          "theta'",
+          "omega",
+          "yes",
+          1.0
+        ],
+        [
+          "theta'",
+          "sin(theta)",
+          "no",
+          0.8
+        ],
+        [
+          "theta'",
+          "theta",
+          "yes",
+          0.43333333333333335
+        ],
+        [
+          "omega'",
+          "1",
+          "yes",
+          0.9666666666666667
+        ],
+        [
+          "omega'",
+          "cos(omega)",
+          "no",
+          0.23333333333333334
+        ],
+        [
+          "omega'",
+          "cos(theta)",
+          "yes",
+          1.0
+        ],
+        [
+          "omega'",
+          "omega",
+          "no",
+          0.26666666666666666
+        ],
+        [
+          "omega'",
+          "sin(omega)",
+          "yes",
+          1.0
+        ],
+        [
+          "omega'",
+          "sin(theta)",
+          "yes",
+          1.0
+        ],
+        [
+          "omega'",
+          "theta",
+          "yes",
+          0.9333333333333333
+        ]
+      ],
+      "caption": "30 refits through the discovery tool on resampled data; the exact structure came back in 3 of them."
+    },
+    "Structure under analysis variants": {
+      "columns": [
+        "variant",
+        "structure",
+        "difference from the equation"
+      ],
+      "rows": [
+        [
+          "FiniteDifference, threshold 0.01",
+          "different",
+          "theta': +sin(theta) -1 -theta; omega': +omega"
+        ],
+        [
+          "FiniteDifference, threshold 0.03",
+          "different",
+          "theta': +sin(theta) -1 -theta"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.01",
+          "different",
+          "theta': +sin(theta) -1 -theta; omega': +omega"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.02",
+          "different",
+          "theta': +sin(theta) -1 -theta"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.03",
+          "different",
+          "theta': +sin(theta) -1 -theta"
+        ]
+      ],
+      "caption": "Each variant is a defensible alternative analysis run on the same data."
+    }
+  }
+}

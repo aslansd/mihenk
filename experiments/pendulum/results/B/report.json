@@ -1,0 +1,533 @@
+{
+  "mihenk_version": "0.1.1",
+  "name": "pendulum B: polynomial library, large swings",
+  "source": "pysindy",
+  "equation": "theta' = 0.134 - 0.04273 theta + 0.9999 omega\nomega' = -92.43 + 214.9 theta - 88.51 theta^2 + 9.38 theta^3",
+  "summary": "1 error(s), 2 warning(s): do not interpret this equation as the law yet",
+  "metrics": {
+    "variables": 2,
+    "trajectories": 6,
+    "samples": 55001,
+    "active_terms": 7,
+    "derivative_r2": 0.9849700955573145,
+    "integral_r2": 0.9997070414293184,
+    "library_relations": 1,
+    "rollout_r2_short": 0.9999362960094886,
+    "structure_reproduced": 0.36666666666666664,
+    "structure_under_variants": 0.4,
+    "distinct_structures": 2
+  },
+  "findings": [
+    {
+      "id": "EQUIFINALITY",
+      "severity": "error",
+      "tier": 0,
+      "what": "A different equation of the same size fits your data exactly as well: theta' = 0.07188 - 0.007016 theta^2 + 0.9999 omega. On the observed states some candidate terms are combinations of others, so the data cannot choose between these laws.",
+      "where": "theta'",
+      "fix": "Collect data that leaves the current set of states (other initial conditions, transients, perturbations) so the alternatives make different predictions.",
+      "evidence": {
+        "alternatives": [
+          {
+            "kind": "swap",
+            "terms": [
+              "1",
+              "theta**2",
+              "omega"
+            ],
+            "coefficients": [
+              0.07188000902602755,
+              -0.007016037673058067,
+              0.9999341194080134
+            ],
+            "residual": 0.03544477298951469
+          }
+        ],
+        "residual_original": 0.0344021659224898
+      }
+    },
+    {
+      "id": "UNSTABLE_STRUCTURE",
+      "severity": "warning",
+      "tier": 1,
+      "what": "Refitting on 30 resamples of your data changes this equation's terms. Terms absent from the equation that often appear: omega (63%), omega*theta (63%), omega*theta^2 (63%) (share of refits). The structure depends on which part of the data the discovery saw.",
+      "where": "omega'",
+      "fix": "Treat these terms as tentative; check them on independent trajectories, or with more or less noisy data.",
+      "evidence": {
+        "disappearing": {},
+        "appearing": {
+          "omega": 0.6333333333333333,
+          "omega*theta": 0.6333333333333333,
+          "omega*theta**2": 0.6333333333333333
+        },
+        "refits": 30
+      }
+    },
+    {
+      "id": "FORKING_PATHS",
+      "severity": "warning",
+      "tier": 1,
+      "what": "The equation's structure comes back under only 2 of 5 defensible analysis variants (2 distinct structures in total). Which law you report depends on analysis choices.",
+      "where": "analysis",
+      "fix": "Report the variants, or pick the analysis on held-out data before looking at the equation.",
+      "evidence": {
+        "share": 0.4,
+        "distinct": 2
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "EQUIFINALITY",
+      "tier": 0,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "DERIVATIVE_ARTIFACT",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "WEAK_TERM",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "UNDERFIT",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "ROLLOUT_TRAP",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "UNSTABLE_STRUCTURE",
+      "tier": 1,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "FORKING_PATHS",
+      "tier": 1,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "RECOVERY",
+      "tier": 2,
+      "status": "not_assessed",
+      "reason": "no true equations (synthetic data only)"
+    }
+  ],
+  "notes": [
+    "held-out data: held-out trajectories (val)",
+    "derivative-free reference: integral form over windows of 50 samples",
+    "candidate library for alternatives: 10 terms"
+  ],
+  "thresholds": {
+    "equifinal_tol": 0.05,
+    "nullspace_tol": 0.01,
+    "coef_rel_se": 0.1,
+    "weak_term_f": 10.0,
+    "deriv_rel_warning": 0.3,
+    "underfit_gain": 0.3,
+    "underfit_f": 100.0,
+    "underfit_share": 0.01,
+    "rollout_fit_r2": 0.9,
+    "rollout_r2": 0.5,
+    "rollout_horizon": 0.1,
+    "bounds_factor": 2.0,
+    "stats_std_ratio": 0.5,
+    "stats_mean_shift": 0.5,
+    "n_boot": 30,
+    "n_blocks": 10,
+    "stable_freq_warning": 0.6,
+    "stable_freq_error": 0.3,
+    "new_term_freq": 0.5,
+    "fork_min_share": 0.5,
+    "gt_coef_rel": 0.1
+  },
+  "details": {
+    "Relations among candidate terms on your data": {
+      "columns": [
+        "relation",
+        "size (smaller = more exact)",
+        "equation terms involved"
+      ],
+      "rows": [
+        [
+          "-0.271 +0.891*theta -1*theta^2 +0.381*theta^3 \u2248 0",
+          0.0027826545832058854,
+          "1, theta, theta^2, theta^3"
+        ]
+      ],
+      "caption": "On the observed states these combinations are (nearly) zero, so the terms in each relation can stand in for one another."
+    },
+    "Equally good alternative equations": {
+      "columns": [
+        "equation",
+        "kind",
+        "alternative right-hand side",
+        "residual (yours)",
+        "residual (alt.)"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "swap",
+          "0.07188 - 0.007016 theta^2 + 0.9999 omega",
+          0.0344021659224898,
+          0.03544477298951469
+        ]
+      ],
+      "caption": "Derivative-free least-squares fits on the same data."
+    },
+    "Coefficients by estimation method": {
+      "columns": [
+        "equation",
+        "term",
+        "note",
+        "as discovered",
+        "derivative-free",
+        "finite_difference",
+        "savgol_7",
+        "savgol_41"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "1",
+          "not identified (see relations)",
+          0.1339929603903946,
+          0.14089118443567417,
+          0.14083372438675582,
+          0.14083216207842827,
+          0.14083616513623542
+        ],
+        [
+          "theta'",
+          "theta",
+          "not identified (see relations)",
+          -0.04273490689656275,
+          -0.04488492172989496,
+          -0.04486750987347797,
+          -0.044867229882684864,
+          -0.044868776834404704
+        ],
+        [
+          "theta'",
+          "omega",
+          "",
+          0.9999134645748038,
+          0.9999286462912017,
+          0.9999053429592349,
+          0.9999146838375647,
+          0.9999136955031974
+        ],
+        [
+          "omega'",
+          "1",
+          "not identified (see relations)",
+          -92.42587005027117,
+          -94.27004092859302,
+          -94.02036921107972,
+          -94.0271651641904,
+          -94.01872592524202
+        ],
+        [
+          "omega'",
+          "theta",
+          "not identified (see relations)",
+          214.94183815119365,
+          216.95496142451822,
+          216.70045076061749,
+          216.70858762387198,
+          216.70004635757564
+        ],
+        [
+          "omega'",
+          "theta^2",
+          "not identified (see relations)",
+          -88.5133869050835,
+          -89.20490281333481,
+          -89.1221450046184,
+          -89.12499943764792,
+          -89.12223385368395
+        ],
+        [
+          "omega'",
+          "theta^3",
+          "not identified (see relations)",
+          9.380305189269512,
+          9.455264550569176,
+          9.446655299710669,
+          9.44695852729921,
+          9.446670111497466
+        ]
+      ],
+      "caption": "Least-squares refits of each equation's own term set. Agreement means the coefficient does not depend on how derivatives were estimated."
+    },
+    "Term strength (derivative-free)": {
+      "columns": [
+        "equation",
+        "term",
+        "F for dropping it",
+        "share of signal lost"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "1",
+          NaN,
+          "see EQUIFINALITY"
+        ],
+        [
+          "theta'",
+          "theta",
+          NaN,
+          "see EQUIFINALITY"
+        ],
+        [
+          "theta'",
+          "omega",
+          211508073.85832864,
+          0.9967563034814648
+        ],
+        [
+          "omega'",
+          "1",
+          11646.63705809856,
+          0.02610228686780405
+        ],
+        [
+          "omega'",
+          "theta",
+          61435.14575293691,
+          0.0756932217778462
+        ],
+        [
+          "omega'",
+          "theta^2",
+          98396.93732988783,
+          0.09960670647090407
+        ],
+        [
+          "omega'",
+          "theta^3",
+          99412.69902113568,
+          0.10019514317934868
+        ]
+      ],
+      "caption": "Large F means removing the term clearly hurts the fit. Windows overlap by half, so F is a screening statistic, not an exact test."
+    },
+    "Best left-out term per equation": {
+      "columns": [
+        "equation",
+        "term",
+        "in library",
+        "residual reduction",
+        "share of signal",
+        "F"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "omega^2*theta^2",
+          "no",
+          0.00703435028152577,
+          2.2618844201123143e-05,
+          31.081753488330587
+        ],
+        [
+          "omega'",
+          "omega^3",
+          "yes",
+          0.010624646618079603,
+          0.0001829919486355229,
+          47.18027781455721
+        ]
+      ],
+      "caption": "For each equation, the single term not in it that most reduces the derivative-free residual (searching the library and one polynomial degree beyond it)."
+    },
+    "Rollouts (integrating the equation)": {
+      "columns": [
+        "segment",
+        "horizon",
+        "samples",
+        "status",
+        "R\u00b2"
+      ],
+      "rows": [
+        [
+          "test segment 0",
+          "short",
+          916,
+          "ok",
+          0.999948871344592
+        ],
+        [
+          "test segment 1",
+          "short",
+          916,
+          "ok",
+          0.9999237206743853
+        ],
+        [
+          "trajectory 0",
+          "full",
+          9167,
+          "ok",
+          0.7457031046420162
+        ],
+        [
+          "trajectory 1",
+          "full",
+          9167,
+          "ok",
+          0.9894081912871665
+        ],
+        [
+          "trajectory 2",
+          "full",
+          9167,
+          "ok",
+          0.9925200507799673
+        ],
+        [
+          "trajectory 3",
+          "full",
+          9167,
+          "ok",
+          0.989793380613891
+        ],
+        [
+          "trajectory 4",
+          "full",
+          9167,
+          "ok",
+          0.9888904458853226
+        ],
+        [
+          "trajectory 5",
+          "full",
+          9166,
+          "ok",
+          0.9879476787182366
+        ]
+      ],
+      "caption": "Short rollouts start each held-out segment; full rollouts integrate each trajectory from its first sample. For chaotic systems a low full-length R\u00b2 is expected; the long-run statistics check compares spread and mean instead."
+    },
+    "Term frequency across resampled refits": {
+      "columns": [
+        "equation",
+        "term",
+        "in equation",
+        "share of refits containing it"
+      ],
+      "rows": [
+        [
+          "theta'",
+          "1",
+          "yes",
+          0.9666666666666667
+        ],
+        [
+          "theta'",
+          "omega",
+          "yes",
+          1.0
+        ],
+        [
+          "theta'",
+          "theta",
+          "yes",
+          0.9666666666666667
+        ],
+        [
+          "omega'",
+          "1",
+          "yes",
+          1.0
+        ],
+        [
+          "omega'",
+          "omega",
+          "no",
+          0.6333333333333333
+        ],
+        [
+          "omega'",
+          "omega*theta",
+          "no",
+          0.6333333333333333
+        ],
+        [
+          "omega'",
+          "omega*theta^2",
+          "no",
+          0.6333333333333333
+        ],
+        [
+          "omega'",
+          "theta",
+          "yes",
+          1.0
+        ],
+        [
+          "omega'",
+          "theta^2",
+          "yes",
+          1.0
+        ],
+        [
+          "omega'",
+          "theta^3",
+          "yes",
+          1.0
+        ]
+      ],
+      "caption": "30 refits through the discovery tool on resampled data; the exact structure came back in 11 of them."
+    },
+    "Structure under analysis variants": {
+      "columns": [
+        "variant",
+        "structure",
+        "difference from the equation"
+      ],
+      "rows": [
+        [
+          "FiniteDifference, threshold 0.01",
+          "different",
+          "omega': +omega +omega*theta +omega*theta^2"
+        ],
+        [
+          "FiniteDifference, threshold 0.03",
+          "same",
+          "-"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.01",
+          "different",
+          "omega': +omega +omega*theta +omega*theta^2"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.02",
+          "different",
+          "omega': +omega +omega*theta +omega*theta^2"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.03",
+          "same",
+          "-"
+        ]
+      ],
+      "caption": "Each variant is a defensible alternative analysis run on the same data."
+    }
+  }
+}
