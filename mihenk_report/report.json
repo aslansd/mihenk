@@ -1,0 +1,572 @@
+{
+  "mihenk_version": "0.1.1",
+  "name": "pysindy",
+  "source": "pysindy",
+  "equation": "x' = 0.1173 - 9.815 x + 9.851 y\ny' = 27.12 x - 0.7343 y - 0.9799 x*z\nz' = -2.653 z + 0.9943 x*y",
+  "summary": "5 warning(s): the equation may be real, but parts of it are not yet supported",
+  "metrics": {
+    "variables": 3,
+    "trajectories": 1,
+    "samples": 5000,
+    "active_terms": 8,
+    "derivative_r2": 0.27450438667154664,
+    "integral_r2": 0.9903220184941256,
+    "library_relations": 0,
+    "rollout_r2_short": 0.9820406061589322,
+    "structure_reproduced": 0.0,
+    "structure_under_variants": 0.2,
+    "distinct_structures": 3
+  },
+  "findings": [
+    {
+      "id": "DERIVATIVE_ARTIFACT",
+      "severity": "warning",
+      "tier": 0,
+      "what": "Coefficients that move by more than 30% when estimated derivative-free: the constant term +0.1173 -> +0.03256.",
+      "where": "x'",
+      "fix": "Refit with smoothed or weak-form derivatives (e.g. PySINDy's SmoothedFiniteDifference) and report the derivative-free coefficients next to the discovered ones.",
+      "evidence": {
+        "sign_flips": {},
+        "drifts": {
+          "1": [
+            0.11727777362716839,
+            0.03256369359645958,
+            0.7223370414586731
+          ]
+        }
+      }
+    },
+    {
+      "id": "WEAK_TERM",
+      "severity": "warning",
+      "tier": 0,
+      "what": "Dropping the constant term (F = 0.00631) barely changes the fit (F below 10): the data cannot tell the equation with these terms from the equation without them.",
+      "where": "x'",
+      "fix": "Do not interpret these terms without more or less noisy data; a sparser equation fits as well.",
+      "evidence": {
+        "terms": {
+          "1": 0.006305858709635865
+        }
+      }
+    },
+    {
+      "id": "UNSTABLE_STRUCTURE",
+      "severity": "warning",
+      "tier": 1,
+      "what": "Refitting on 30 resamples of your data changes this equation's terms. Terms absent from the equation that often appear: the constant term (97%) (share of refits). The structure depends on which part of the data the discovery saw.",
+      "where": "y'",
+      "fix": "Treat these terms as tentative; check them on independent trajectories, or with more or less noisy data.",
+      "evidence": {
+        "disappearing": {},
+        "appearing": {
+          "1": 0.9666666666666667
+        },
+        "refits": 30
+      }
+    },
+    {
+      "id": "UNSTABLE_STRUCTURE",
+      "severity": "warning",
+      "tier": 1,
+      "what": "Refitting on 30 resamples of your data changes this equation's terms. Terms absent from the equation that often appear: the constant term (90%), x (50%), y (53%) (share of refits). The structure depends on which part of the data the discovery saw.",
+      "where": "z'",
+      "fix": "Treat these terms as tentative; check them on independent trajectories, or with more or less noisy data.",
+      "evidence": {
+        "disappearing": {},
+        "appearing": {
+          "1": 0.9,
+          "x": 0.5,
+          "y": 0.5333333333333333
+        },
+        "refits": 30
+      }
+    },
+    {
+      "id": "FORKING_PATHS",
+      "severity": "warning",
+      "tier": 1,
+      "what": "The equation's structure comes back under only 1 of 5 defensible analysis variants (3 distinct structures in total). Which law you report depends on analysis choices.",
+      "where": "analysis",
+      "fix": "Report the variants, or pick the analysis on held-out data before looking at the equation.",
+      "evidence": {
+        "share": 0.2,
+        "distinct": 3
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "EQUIFINALITY",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "DERIVATIVE_ARTIFACT",
+      "tier": 0,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "WEAK_TERM",
+      "tier": 0,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "UNDERFIT",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "ROLLOUT_TRAP",
+      "tier": 0,
+      "status": "clean",
+      "reason": ""
+    },
+    {
+      "id": "UNSTABLE_STRUCTURE",
+      "tier": 1,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "FORKING_PATHS",
+      "tier": 1,
+      "status": "flagged",
+      "reason": ""
+    },
+    {
+      "id": "RECOVERY",
+      "tier": 2,
+      "status": "not_assessed",
+      "reason": "no true equations (synthetic data only)"
+    }
+  ],
+  "notes": [
+    "held-out data: last 20% of each trajectory",
+    "derivative-free reference: integral form over windows of 50 samples",
+    "candidate library for alternatives: 10 terms"
+  ],
+  "thresholds": {
+    "equifinal_tol": 0.05,
+    "nullspace_tol": 0.01,
+    "coef_rel_se": 0.1,
+    "weak_term_f": 10.0,
+    "deriv_rel_warning": 0.3,
+    "underfit_gain": 0.3,
+    "underfit_f": 100.0,
+    "underfit_share": 0.01,
+    "rollout_fit_r2": 0.9,
+    "rollout_r2": 0.5,
+    "rollout_horizon": 0.1,
+    "bounds_factor": 2.0,
+    "stats_std_ratio": 0.5,
+    "stats_mean_shift": 0.5,
+    "n_boot": 30,
+    "n_blocks": 10,
+    "stable_freq_warning": 0.6,
+    "stable_freq_error": 0.3,
+    "new_term_freq": 0.5,
+    "fork_min_share": 0.5,
+    "gt_coef_rel": 0.1
+  },
+  "details": {
+    "Coefficients by estimation method": {
+      "columns": [
+        "equation",
+        "term",
+        "note",
+        "as discovered",
+        "derivative-free",
+        "finite_difference",
+        "savgol_7",
+        "savgol_41"
+      ],
+      "rows": [
+        [
+          "x'",
+          "1",
+          "",
+          0.11727777362716839,
+          0.03256369359645958,
+          0.020558985149990487,
+          0.09515765496002579,
+          0.03949192377159859
+        ],
+        [
+          "x'",
+          "x",
+          "",
+          -9.814697687775528,
+          -10.029172647432722,
+          -9.828834764947077,
+          -9.73096065729562,
+          -9.822128330347763
+        ],
+        [
+          "x'",
+          "y",
+          "",
+          9.850675300698512,
+          10.036530350430827,
+          9.861206677310735,
+          9.767881234846856,
+          9.855468924836195
+        ],
+        [
+          "y'",
+          "x",
+          "",
+          27.11546267348697,
+          27.66511860300366,
+          27.17636550979286,
+          27.726190391276084,
+          26.969843030336836
+        ],
+        [
+          "y'",
+          "y",
+          "",
+          -0.7342505962346626,
+          -0.9645784066777824,
+          -0.7516955749400931,
+          -0.9545549678751132,
+          -0.6979702248808299
+        ],
+        [
+          "y'",
+          "x*z",
+          "",
+          -0.9799464337939736,
+          -0.9900432342059204,
+          -0.9811836316964546,
+          -0.991693170123348,
+          -0.9761526800000763
+        ],
+        [
+          "z'",
+          "z",
+          "",
+          -2.6526796060418185,
+          -2.688471346421521,
+          -2.6579049180384264,
+          -2.6541743642026243,
+          -2.6533985779983715
+        ],
+        [
+          "z'",
+          "x*y",
+          "",
+          0.9943412585379632,
+          1.0050708431403947,
+          0.9950215109147219,
+          0.9941866107053049,
+          0.9940839914930868
+        ]
+      ],
+      "caption": "Least-squares refits of each equation's own term set. Agreement means the coefficient does not depend on how derivatives were estimated."
+    },
+    "Term strength (derivative-free)": {
+      "columns": [
+        "equation",
+        "term",
+        "F for dropping it",
+        "share of signal lost"
+      ],
+      "rows": [
+        [
+          "x'",
+          "1",
+          0.006305858709635865,
+          2.103808990968238e-06
+        ],
+        [
+          "x'",
+          "x",
+          8519.650729364712,
+          0.7397211527337764
+        ],
+        [
+          "x'",
+          "y",
+          11317.068532807705,
+          0.8696299043910795
+        ],
+        [
+          "y'",
+          "x",
+          3054.283865304502,
+          0.3193560310467351
+        ],
+        [
+          "y'",
+          "y",
+          31.836460132968732,
+          0.00813894494986274
+        ],
+        [
+          "y'",
+          "x*z",
+          7088.920400469078,
+          0.5296720809442572
+        ],
+        [
+          "z'",
+          "z",
+          12600.193878731478,
+          0.5703959831113801
+        ],
+        [
+          "z'",
+          "x*y",
+          30001.0091140429,
+          0.9194265487794199
+        ]
+      ],
+      "caption": "Large F means removing the term clearly hurts the fit. Windows overlap by half, so F is a screening statistic, not an exact test."
+    },
+    "Best left-out term per equation": {
+      "columns": [
+        "equation",
+        "term",
+        "in library",
+        "residual reduction",
+        "share of signal",
+        "F"
+      ],
+      "rows": [
+        [
+          "x'",
+          "x*y",
+          "yes",
+          0.012969772392462997,
+          0.0016875729048556006,
+          5.131893704160743
+        ],
+        [
+          "y'",
+          "y^3",
+          "no",
+          0.0029526780897637384,
+          0.0003059524433793963,
+          1.1507332040867382
+        ],
+        [
+          "z'",
+          "y*z^2",
+          "no",
+          0.00884076979268933,
+          0.0007122494636013517,
+          3.494168347612786
+        ]
+      ],
+      "caption": "For each equation, the single term not in it that most reduces the derivative-free residual (searching the library and one polynomial degree beyond it)."
+    },
+    "Rollouts (integrating the equation)": {
+      "columns": [
+        "segment",
+        "horizon",
+        "samples",
+        "status",
+        "R\u00b2"
+      ],
+      "rows": [
+        [
+          "test segment 0",
+          "short",
+          100,
+          "ok",
+          0.9820406061589322
+        ],
+        [
+          "trajectory 0",
+          "full",
+          5000,
+          "ok",
+          -0.8734461726412983
+        ]
+      ],
+      "caption": "Short rollouts start each held-out segment; full rollouts integrate each trajectory from its first sample. For chaotic systems a low full-length R\u00b2 is expected; the long-run statistics check compares spread and mean instead."
+    },
+    "Term frequency across resampled refits": {
+      "columns": [
+        "equation",
+        "term",
+        "in equation",
+        "share of refits containing it"
+      ],
+      "rows": [
+        [
+          "x'",
+          "1",
+          "yes",
+          0.8333333333333334
+        ],
+        [
+          "x'",
+          "x",
+          "yes",
+          1.0
+        ],
+        [
+          "x'",
+          "x^2",
+          "no",
+          0.03333333333333333
+        ],
+        [
+          "x'",
+          "x*y",
+          "no",
+          0.03333333333333333
+        ],
+        [
+          "x'",
+          "x*z",
+          "no",
+          0.03333333333333333
+        ],
+        [
+          "x'",
+          "y",
+          "yes",
+          1.0
+        ],
+        [
+          "x'",
+          "y*z",
+          "no",
+          0.03333333333333333
+        ],
+        [
+          "x'",
+          "z",
+          "no",
+          0.16666666666666666
+        ],
+        [
+          "x'",
+          "z^2",
+          "no",
+          0.03333333333333333
+        ],
+        [
+          "y'",
+          "1",
+          "no",
+          0.9666666666666667
+        ],
+        [
+          "y'",
+          "x",
+          "yes",
+          1.0
+        ],
+        [
+          "y'",
+          "x*z",
+          "yes",
+          1.0
+        ],
+        [
+          "y'",
+          "y",
+          "yes",
+          0.9666666666666667
+        ],
+        [
+          "y'",
+          "y*z",
+          "no",
+          0.03333333333333333
+        ],
+        [
+          "y'",
+          "z",
+          "no",
+          0.16666666666666666
+        ],
+        [
+          "z'",
+          "1",
+          "no",
+          0.9
+        ],
+        [
+          "z'",
+          "x",
+          "no",
+          0.5
+        ],
+        [
+          "z'",
+          "x^2",
+          "no",
+          0.23333333333333334
+        ],
+        [
+          "z'",
+          "x*y",
+          "yes",
+          1.0
+        ],
+        [
+          "z'",
+          "y",
+          "no",
+          0.5333333333333333
+        ],
+        [
+          "z'",
+          "z",
+          "yes",
+          1.0
+        ],
+        [
+          "z'",
+          "z^2",
+          "no",
+          0.16666666666666666
+        ]
+      ],
+      "caption": "30 refits through the discovery tool on resampled data; the exact structure came back in 0 of them."
+    },
+    "Structure under analysis variants": {
+      "columns": [
+        "variant",
+        "structure",
+        "difference from the equation"
+      ],
+      "rows": [
+        [
+          "FiniteDifference, threshold 0.05",
+          "different",
+          "x': +x*z +y*z; y': +1; z': +1 +x^2 +z^2"
+        ],
+        [
+          "FiniteDifference, threshold 0.15",
+          "different",
+          "x': -1"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.05",
+          "same",
+          "-"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.1",
+          "different",
+          "x': -1"
+        ],
+        [
+          "SmoothedFiniteDifference, threshold 0.15",
+          "different",
+          "x': -1"
+        ]
+      ],
+      "caption": "Each variant is a defensible alternative analysis run on the same data."
+    }
+  }
+}

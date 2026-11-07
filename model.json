@@ -1,0 +1,35 @@
+{
+  "variables": [
+    "x",
+    "y",
+    "z"
+  ],
+  "equations": {
+    "x": "0.11727777362716839 + -9.814697687775528*x + 9.850675300698512*y",
+    "y": "27.11546267348697*x + -0.7342505962346626*y + -0.9799464337939736*x*z",
+    "z": "-2.6526796060418185*z + 0.9943412585379632*x*y"
+  },
+  "library": [
+    "1",
+    "x",
+    "y",
+    "z",
+    "x**2",
+    "x*y",
+    "x*z",
+    "y**2",
+    "y*z",
+    "z**2"
+  ],
+  "source": "pysindy (mihenk fit)",
+  "meta": {
+    "library": "PolynomialLibrary",
+    "optimizer": "STLSQ",
+    "differentiation": "FiniteDifference",
+    "pysindy_config": {
+      "degree": 2,
+      "threshold": 0.1,
+      "diff": "fd"
+    }
+  }
+}

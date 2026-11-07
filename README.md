@@ -41,13 +41,18 @@ Following the fix works: with transients from six starting points, SINDy recover
 ```python
 import pysindy as ps
 import mihenk
+from mihenk import synth
+
+# example data with a known law; use your own x (T, n) and t (T,) instead
+b = synth.simulate("lorenz", noise=0.05, seed=0)
+x, t = b.xs[0], b.ts[0]
 
 model = ps.SINDy(optimizer=ps.STLSQ(threshold=0.1))
 model.fit(x, t=t, feature_names=["x", "y", "z"])
 
-report = mihenk.scan_pysindy(model, x, t)     # same x, t you fitted on (lists for several trajectories)
+report = mihenk.scan_pysindy(model, x, t)
 print(report.render_text())
-report.save("mihenk_report")                   # report.html, .json, .md, .txt
+report.save("mihenk_report")       # then open mihenk_report/report.html
 ```
 
 From the command line:
