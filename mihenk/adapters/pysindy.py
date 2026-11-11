@@ -98,7 +98,7 @@ def make_variants(sindy, variables=None, threshold_factors=(0.5, 1.0, 1.5)) -> d
 
 
 def scan_pysindy(sindy, x, t, *, feature_names=None, name="pysindy", val=None, thresholds=None,
-                 variants=True, seed=0, meta=None):
+                 variants=True, seed=0, meta=None, kinematics=None):
     from ..scan import scan
 
     variables = list(feature_names or sindy.feature_names)
@@ -111,30 +111,35 @@ def scan_pysindy(sindy, x, t, *, feature_names=None, name="pysindy", val=None, t
     model = from_pysindy(sindy, variables)
     return scan(b, model, refit=make_refit(sindy, variables),
                 variants=make_variants(sindy, variables) if variants else None,
-                thresholds=thresholds, seed=seed)
+                thresholds=thresholds, seed=seed, kinematics=kinematics)
 
 
 # --------------------------------------------------------------- CLI helpers
 DIFFS = {"fd": "FiniteDifference", "smoothed": "SmoothedFiniteDifference"}
 
 
-def build_sindy(degree: int = 2, threshold: float = 0.1, diff: str = "fd"):
-    """A PySINDy model from a small, serializable configuration (used by ``mihenk fit``)."""
+def build_sindy(degree: int = 2, threshold: float = 0.1, diff: str = "fd", fourier: int = 0):
+    """A PySINDy model from a small, serializable configuration (used by ``mihenk fit``).
+
+    ``fourier > 0`` adds ``FourierLibrary(n_frequencies=fourier)`` to the polynomial library.
+    """
     _require()
     import pysindy as ps
 
     if diff not in DIFFS:
         raise ValueError(f"diff must be one of {', '.join(DIFFS)}")
-    return ps.SINDy(optimizer=ps.STLSQ(threshold=threshold),
-                    feature_library=ps.PolynomialLibrary(degree=degree),
+    library = ps.PolynomialLibrary(degree=degree)
+    if fourier:
+        library = library + ps.FourierLibrary(n_frequencies=int(fourier))
+    return ps.SINDy(optimizer=ps.STLSQ(threshold=threshold), feature_library=library,
                     differentiation_method=getattr(ps, DIFFS[diff])())
 
 
-def fit_bundle(bundle: Bundle, degree: int = 2, threshold: float = 0.1, diff: str = "fd"):
+def fit_bundle(bundle: Bundle, degree: int = 2, threshold: float = 0.1, diff: str = "fd", fourier: int = 0):
     """Fit PySINDy to a bundle's trajectories; returns ``(sindy, model)``."""
     import warnings
 
-    sindy = build_sindy(degree, threshold, diff)
+    sindy = build_sindy(degree, threshold, diff, fourier)
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         if bundle.n_traj == 1:
@@ -143,4 +148,6 @@ def fit_bundle(bundle: Bundle, degree: int = 2, threshold: float = 0.1, diff: st
             sindy.fit(bundle.xs, t=bundle.ts, feature_names=bundle.variables)
     model = from_pysindy(sindy, bundle.variables, source="pysindy (mihenk fit)")
     model.meta["pysindy_config"] = {"degree": degree, "threshold": threshold, "diff": diff}
+    if fourier:
+        model.meta["pysindy_config"]["fourier"] = int(fourier)
     return sindy, model

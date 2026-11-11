@@ -19,12 +19,16 @@ from .scan import Thresholds, scan  # noqa: E402
 
 
 def scan_pysindy(sindy_model, x, t, *, feature_names=None, name="pysindy", val=None,
-                 thresholds=None, variants=True, seed=0, meta=None):
-    """Scan a fitted PySINDy model on the data it was fitted to (tiers 0 and 1)."""
+                 thresholds=None, variants=True, seed=0, meta=None, kinematics=None):
+    """Scan a fitted PySINDy model on the data it was fitted to (tiers 0 and 1).
+
+    ``kinematics={"theta": "omega"}`` declares theta' = omega and unlocks KINEMATIC_MISMATCH.
+    """
     from .adapters import pysindy as _ps
 
     return _ps.scan_pysindy(sindy_model, x, t, feature_names=feature_names, name=name, val=val,
-                            thresholds=thresholds, variants=variants, seed=seed, meta=meta)
+                            thresholds=thresholds, variants=variants, seed=seed, meta=meta,
+                            kinematics=kinematics)
 
 
 __all__ = ["Bundle", "Model", "Report", "Finding", "Check", "Thresholds", "scan", "scan_pysindy",

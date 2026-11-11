@@ -34,6 +34,8 @@ class Case:
     why: str = ""
     quick: bool = True
     any_of: bool = False            # pass if any expected flag is raised (noisy cases vary by seed)
+    forbid: set = field(default_factory=set)   # flags that must not be raised
+    sensor: dict | None = None      # imperfect measurement, passed to synth.simulate
 
 
 CASES = [
@@ -60,6 +62,15 @@ CASES = [
          noise=0.05, threshold=0.1, any_of=True, why="a spurious constant from differentiated noise"),
     Case("van_der_pol_noise10", "van_der_pol", {"DERIVATIVE_ARTIFACT", "WEAK_TERM"},
          noise=0.1, threshold=0.01, why="heavy noise, dense overfit equation: both must fire", quick=False),
+    Case("pendulum_kinematics_clean", "pendulum", set(), threshold=0.02, forbid={"KINEMATIC_MISMATCH"},
+         why="declared theta' = omega with an exact sensor: the kinematic check must stay quiet"),
+    Case("pendulum_velocity_lag", "pendulum", {"KINEMATIC_MISMATCH"}, threshold=0.02,
+         sensor={"omega": {"delay": 7e-4}},
+         why="omega recorded 0.7 ms late, as in the Brunton-lab experiment: extra theta' terms, damping halved"),
+    Case("pendulum_velocity_gain", "pendulum", {"KINEMATIC_MISMATCH"}, threshold=0.02,
+         sensor={"omega": {"gain": 1.02}}, why="omega recorded 2% too large (a scale error)"),
+    Case("pendulum_velocity_offset", "pendulum", {"KINEMATIC_MISMATCH"}, threshold=0.02,
+         sensor={"omega": {"offset": 0.05}}, why="omega recorded with a bias of 0.05 rad/s"),
     Case("linear_wrong_sign", "linear_damped", {"ROLLOUT_TRAP"},
          equation="x' = 0.1 x + 2 y\ny' = -2 x + 0.1 y",
          why="hand-edited damping sign: close derivatives, but the simulation spirals out"),
@@ -84,7 +95,7 @@ class CaseResult:
 
 def run_case(case: Case, seed: int = 0) -> CaseResult:
     t0 = time.time()
-    b = synth.simulate(case.system, noise=case.noise, n_traj=case.n_traj, seed=seed)
+    b = synth.simulate(case.system, noise=case.noise, n_traj=case.n_traj, seed=seed, sensor=case.sensor)
     b.meta["name"] = case.name
     refit = variants = None
     if case.equation is not None:
@@ -93,7 +104,8 @@ def run_case(case: Case, seed: int = 0) -> CaseResult:
         from .adapters import pysindy as A
 
         degree = case.degree or synth.SYSTEMS[case.system].degree
-        sindy, model = A.fit_bundle(b, degree=degree, threshold=case.threshold, diff=case.diff)
+        sindy, model = A.fit_bundle(b, degree=degree, threshold=case.threshold, diff=case.diff,
+                                    fourier=synth.SYSTEMS[case.system].fourier)
         refit = A.make_refit(sindy, b.variables)
         variants = A.make_variants(sindy, b.variables)
     report = scan(b, model, refit=refit, variants=variants, seed=seed)
@@ -110,6 +122,8 @@ def run_case(case: Case, seed: int = 0) -> CaseResult:
         passed = case.expect <= flagged
     if gt is False and not flagged:
         passed = False                           # a wrong law that nothing flagged is the worst outcome
+    if case.forbid & flagged:
+        passed = False
     return CaseResult(case, flagged, errors, gt, passed, time.time() - t0, report)
 
 

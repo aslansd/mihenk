@@ -58,7 +58,8 @@ def cmd_scan(args) -> int:
     ctx = provenance.tracked("mihenk scan", params, inputs=[args.bundle, args.model], seed=args.seed) \
         if args.daftar else nullcontext(None)
     with ctx as run:
-        report = scan(bundle, model, refit=refit, variants=variants, thresholds=th, seed=args.seed)
+        report = scan(bundle, model, refit=refit, variants=variants, thresholds=th, seed=args.seed,
+                      kinematics=args.kinematic or None)
         out = None
         if args.out:
             out = report.save(args.out)
@@ -76,7 +77,8 @@ def cmd_fit(args) -> int:
     from .adapters import pysindy as A
 
     bundle = Bundle.load(args.bundle)
-    _, model = A.fit_bundle(bundle, degree=args.degree, threshold=args.threshold, diff=args.diff)
+    _, model = A.fit_bundle(bundle, degree=args.degree, threshold=args.threshold, diff=args.diff,
+                            fourier=args.fourier)
     model.save(args.output)
     print(model.pretty())
     print(f"\nmodel written to {args.output}; next: mihenk scan {args.bundle} --model {args.output}")
@@ -138,6 +140,8 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--json", action="store_true", help="print the report as JSON")
     s.add_argument("--set", action="append", metavar="NAME=VALUE", help="override a threshold")
     s.add_argument("--seed", type=int, default=0)
+    s.add_argument("--kinematic", action="append", metavar="P=V",
+                   help="declare P' = V (e.g. theta=omega); repeatable; overrides the bundle's own pairs")
     s.add_argument("--no-refit", action="store_true", help="skip tier-1 refits even if possible")
     s.add_argument("--daftar", action="store_true", help="record the scan with daftar")
     s.set_defaults(fn=cmd_scan)
@@ -148,6 +152,7 @@ def build_parser() -> argparse.ArgumentParser:
     f.add_argument("--degree", type=int, default=2)
     f.add_argument("--threshold", type=float, default=0.1)
     f.add_argument("--diff", choices=["fd", "smoothed"], default="fd")
+    f.add_argument("--fourier", type=int, default=0, help="add FourierLibrary(n_frequencies=N)")
     f.set_defaults(fn=cmd_fit)
 
     y = sub.add_parser("synth", help="simulate a system with a known law")

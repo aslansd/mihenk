@@ -27,6 +27,7 @@ import numpy as np
 import sympy as sp
 
 from . import __version__
+from . import kinematics as _kinematics
 from . import numerics as N
 from .bundle import Bundle
 from .model import Model, candidate_library, evaluate_terms, format_rhs, polynomial_library, term_label
@@ -56,6 +57,16 @@ class Thresholds:
     new_term_freq: float = 0.5           # a term absent from the equation but this frequent is flagged
     fork_min_share: float = 0.5          # the structure should come back under this share of variants
     gt_coef_rel: float = 0.1             # tier 2: coefficient relative error counted as wrong
+    kin_max_lag: int = 10                # KINEMATIC_MISMATCH: lag search range, in samples either way
+    kin_min_share: float = 0.001         # ...lag/gain/offset must explain this share of the change in p
+    kin_f: float = 10.0                  # ...with at least this F statistic (no-mismatch runs stayed below 0.5)
+    kin_eq_share: float = 0.005          # ...or the discovered p' must differ from v by this share of v
+    kin_error_share: float = 0.01        # ...an error at this share, a warning below it
+    kin_report_lag: float = 0.1          # report a lag from this many samples
+    kin_report_gain: float = 0.002       # report a gain this far from 1
+    kin_report_offset: float = 0.002     # report an offset from this fraction of v's RMS
+    kin_coef_change: float = 0.25        # correcting the mismatch moves a coefficient this much: error
+    kin_coef_min_share: float = 0.001    # ...counting only terms carrying this share of the equation
 
     def update(self, overrides: dict) -> "Thresholds":
         names = {f.name: f.type for f in fields(self)}
@@ -70,13 +81,17 @@ Refit = Callable[[list], Model]   # list of (x, t) pairs -> Model
 
 
 def scan(bundle: Bundle, model: Model, refit: Refit | None = None, variants: dict | None = None,
-         thresholds: Thresholds | None = None, seed: int = 0) -> Report:
+         thresholds: Thresholds | None = None, seed: int = 0, kinematics=None) -> Report:
     """Check a discovered equation against the data it came from.
 
     ``refit`` (tier 1) re-runs the discovery on a list of ``(x, t)`` pairs and
     returns a :class:`Model`; ``variants`` maps names to such callables, each a
     reasonable alternative analysis (another derivative method, threshold, ...).
     The PySINDy adapter builds both from a fitted model.
+
+    ``kinematics`` declares derivative pairs, ``{"theta": "omega"}`` for
+    theta' = omega (default: ``bundle.meta["kinematics"]``), and unlocks
+    ``KINEMATIC_MISMATCH``.
     """
     th = thresholds or Thresholds()
     if list(model.variables) != list(bundle.variables):
@@ -86,6 +101,8 @@ def scan(bundle: Bundle, model: Model, refit: Refit | None = None, variants: dic
     checks: list = []
     for detector in (_check_equifinality, _check_derivative_artifact, _check_weak_terms, _check_underfit, _check_rollout):
         detector(ctx, findings, checks)
+    _kinematics.check(ctx, kinematics if kinematics is not None else bundle.meta.get("kinematics"),
+                      findings, checks)
     rng = np.random.default_rng(seed)
     if refit is None:
         for cid in ("UNSTABLE_STRUCTURE",):
