@@ -80,9 +80,27 @@ mihenk scan lorenz.npz --model model.json --out report   # exit status 1 on erro
 | `WEAK_TERM` | 0 | The data can't tell the equation with a term from without it | F statistic for dropping each term, in the integral form |
 | `UNDERFIT` | 0 | A left-out term explains much of what the equation misses | Add each library term, and each term one polynomial degree beyond the library |
 | `ROLLOUT_TRAP` | 0 | Fits derivatives but does not reproduce the system when simulated | Short rollouts from held-out states; full rollouts; escapes; long-run spread and mean |
+| `KINEMATIC_MISMATCH` | 0 | A declared pair such as θ' = ω does not hold in the data or in the equation (a lagging, scaled or biased sensor) | Derivative-free fit of `p' = gain * v(t + lag) + offset`; checks the discovered `p'` against `v`; tests whether the lag predicts the extra terms; refits the other equations with `v` corrected |
 | `UNSTABLE_STRUCTURE` | 1 | Terms come and go when the data are resampled | Bootstrap (trajectories, or blocks of one trajectory), refit through PySINDy |
 | `FORKING_PATHS` | 1 | The law depends on defensible analysis choices | Refit under other derivative methods and sparsity thresholds |
 | `MISSED_TERM`, `SPURIOUS_TERM`, `COEF_ERROR` | 2 | (synthetic data only) The discovered law against the true one | Term-by-term comparison |
+
+### Declaring kinematic pairs
+
+Some variables are derivatives of others by definition: position and
+velocity, angle and angular velocity. mihenk cannot infer that from data, so
+you declare it:
+
+```python
+report = mihenk.scan_pysindy(model, x, t, kinematics={"theta": "omega"})   # theta' = omega
+```
+
+On the command line, use `mihenk scan ... --kinematic theta=omega`, or put
+`"kinematics"` in the bundle's meta. Without a declaration the check is *not
+assessed*, and mihenk suggests pairs whose discovered equations look
+kinematic. On the experimental pendulum it reports that the velocity signal
+runs 0.85 ms late, and that the lag accounts for 98% of the extra terms SINDy
+put into θ'.
 
 **Tiers** describe what evidence a check needs:
 
@@ -96,7 +114,7 @@ Every threshold is named and can be overridden: `mihenk scan ... --set weak_term
 
 ## Validation
 
-`mihenk validate` runs 14 synthetic cases built to show each failure, plus cases that must come out clean. `mihenk validate --seeds 20` repeats them over 20 random seeds (different initial conditions and noise):
+`mihenk validate` runs 18 synthetic cases built to show each failure, plus cases that must come out clean. `mihenk validate --seeds 20` repeats them over 20 random seeds (different initial conditions and noise):
 
 ```
 case                               passed  warned (clean)   wrong law, flagged
@@ -113,15 +131,19 @@ lotka_volterra_one_orbit_noisy     20/20                -                  6/6
 duffing_small_library              20/20                -                20/20
 lorenz_noise5_low_threshold        20/20                -                20/20
 van_der_pol_noise10                20/20                -                20/20
+pendulum_kinematics_clean          20/20             0/20                20/20
+pendulum_velocity_lag              20/20                -                20/20
+pendulum_velocity_gain             20/20                -                20/20
+pendulum_velocity_offset           20/20                -                20/20
 linear_wrong_sign                  20/20                -                    -
 
-280/280 case runs pass over seeds 0-19.
+360/360 case runs pass over seeds 0-19.
 ```
 
 Over these runs:
-- Every one of the 91 times SINDy returned a wrong law, mihenk flagged it, including the 5 times this happened in cases meant to be clean.
-- In the 9 cases built to come out clean, none of the 175 correct-law runs received an error.
-- 3 of those 175 runs received a warning. All three are single mild-noise Lorenz trajectories lying close to a quadric surface, where a constant term appears in some refits.
+- Every one of the 171 times SINDy returned a wrong law, mihenk flagged it. That includes 25 runs in cases meant to be clean. In 20 of those, SINDy added a small θ term next to sin θ in the clean pendulum.
+- In the 9 non-pendulum cases built to come out clean, none of the 175 correct-law runs received an error. 3 received a warning. All three are single mild-noise Lorenz trajectories lying close to a quadric surface, where a constant term appears in some refits.
+- `KINEMATIC_MISMATCH` never fired on the clean pendulum (20 of 20) and caught the lag, gain and offset every time (60 of 60). Its separate, pre-registered calibration/test split is in [experiments/kinematic_synthetic](experiments/kinematic_synthetic/RESULTS.md).
 
 ## Experimental data
 
@@ -147,6 +169,18 @@ partly held and 1 failed. In brief:
     the cubic is a fine law anyway.
 
   These lead the [roadmap](ROADMAP.md).
+
+mihenk 0.2 adds the check this test asked for, `KINEMATIC_MISMATCH`. Declare
+θ' = ω and it names the lag directly: 0.85 ms, accounting for 98% of the
+extra θ' terms. Its own test is a pre-registered synthetic sweep
+([experiments/kinematic_synthetic](experiments/kinematic_synthetic/RESULTS.md)):
+
+- no false alarms in 80 runs;
+- a lag of the experiment's size caught as an error up to 0.5% noise;
+- a 2% gain error and a velocity bias caught in every run.
+
+At 1% position noise it misses half of the lags. That is a stated power
+limit.
 
 ## Limits (read these)
 

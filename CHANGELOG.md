@@ -1,6 +1,43 @@
 # Changelog
 
-## 0.1.1 — 2026-11-07
+## 0.2.0 — 2026-11-11
+
+### Added
+- **`KINEMATIC_MISMATCH`** (tier 0). Declare derivative pairs such as
+  `theta' = omega`, with `kinematics={"theta": "omega"}` in `scan` and
+  `scan_pysindy`, `--kinematic theta=omega` on the command line, or
+  `"kinematics"` in the bundle's meta. mihenk then:
+  - fits the measured `omega` as `gain * omega(t + lag) + offset`,
+    derivative-free, overall and per trajectory;
+  - checks the discovered `theta'` against `omega`;
+  - estimates how much of the extra `theta'` terms the lag predicts;
+  - refits the other equations with `omega` corrected, so it can report when
+    the sensor flaw changes the law.
+
+  Without a declaration the check is *not assessed*, with suggested pairs.
+  Nine new thresholds start with `kin_`. All of them are documented in
+  `Thresholds` and can be overridden.
+- **`synth.simulate(..., sensor=...)`** records a variable with a lag, gain
+  and/or offset, so sensor artifacts can be studied with a known law.
+- **A `pendulum` system in `synth`**, with coefficients like the Brunton-lab
+  experiment and the pair `theta' = omega` declared.
+- **`mihenk fit --fourier N`** and `fit_bundle(..., fourier=N)` add
+  `FourierLibrary(n_frequencies=N)` to the polynomial library.
+- **Four validation cases** (now 18): a clean pendulum (the kinematic check
+  must stay quiet), and velocity lag, gain and offset.
+- **`experiments/kinematic_synthetic/`.** Thresholds were calibrated on seeds
+  0–9, and predictions for seeds 10–19 committed before running them:
+  5 held, 1 partly held.
+- **`experiments/pendulum/run_kinematics.py`**: the development case on the
+  real pendulum. ω runs 0.85 ms late, and the lag explains 98% of the extra
+  θ' terms.
+- 10 new tests (35 in total).
+
+### Changed
+- The validation `Case` gains `sensor` and `forbid` (flags that must not
+  fire).
+
+
 
 First contact with experimental data, and the bug it exposed.
 

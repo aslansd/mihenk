@@ -19,10 +19,10 @@ pip install -e ".[test]"
 python -m pytest -q
 ```
 
-25 tests, under a minute on a laptop CPU.
+35 tests, under a minute on a laptop CPU.
 
-- With PySINDy installed, all 25 must pass.
-- Without PySINDy, 19 pass and 6 are skipped with the reason `needs PySINDy`.
+- With PySINDy installed, all 35 must pass.
+- Without PySINDy, 29 pass and 6 are skipped with the reason `needs PySINDy`.
   That is expected. The core checks need only numpy, scipy and sympy, and they
   are tested on their own.
 - If you see `1 skipped` and nothing else, you have a test file older than
@@ -54,6 +54,15 @@ What the suite pins down:
 - **Thresholds.** Overrides work, and an unknown threshold name is an error.
 - **Reports.** `report.json` carries the version, and `report.html` is a full
   page with the findings.
+- **Kinematic pairs.**
+  - Declarations parse, and bad ones are rejected.
+  - A synthetic lag, gain and offset are each recovered to within 2%.
+  - An exact sensor is clean, and no declaration means *not assessed*, with
+    a suggested pair.
+  - A lag is flagged as an error. The lag explains the extra θ' term, and
+    correcting ω restores the damping to −0.07.
+  - The `kinematics=` argument overrides the bundle's meta.
+  - The CLI `--kinematic` flag works.
 - **Rollouts on resting data.** A held-out segment where the system is at
   rest gives a finite R² (the 0.1.0 bug found by the pendulum test).
 - **CLI.**
@@ -64,9 +73,9 @@ What the suite pins down:
 ## 2. Synthetic validation
 
 ```bash
-mihenk validate                 # 14 cases, about 10 seconds
-mihenk validate --quick         # 13 cases, skips the slow heavy-noise case
-mihenk validate --seeds 20      # every case over seeds 0-19, about 6 minutes
+mihenk validate                 # 18 cases, about 30 seconds
+mihenk validate --quick         # 17 cases, skips the slow heavy-noise case
+mihenk validate --seeds 20      # every case over seeds 0-19, about 10 minutes
 ```
 
 Each case simulates a system with a known law and fits it with PySINDy (or
@@ -79,6 +88,7 @@ comparison (tier 2) is printed next to it. The pass rules are:
 | built to be clean, and the fit found the true law | no **errors** (warnings are counted separately as false warnings) |
 | built to be clean, but the fit found a wrong law | at least one flag. A wrong law that nothing flags is the worst outcome |
 | built to show a failure | the expected flag fires (`a \| b` in the output means any one of them) |
+| any case with `forbid` | none of the forbidden flags fires (the clean pendulum must not raise `KINEMATIC_MISMATCH`) |
 
 The multi-seed summary has three columns:
 
@@ -115,11 +125,23 @@ A cleaner calibration/test split is on the [roadmap](ROADMAP.md).
 3. Change a threshold only with a reason that holds beyond the failing seed,
    and rerun `--seeds 20` afterwards.
 
-## 3. Experimental data
+## 3. Pre-registered synthetic tests
+
+```bash
+python experiments/kinematic_synthetic/sweep.py 10 20   # the KINEMATIC_MISMATCH test seeds, about 1.5 minutes
+```
+
+Compare the output with `experiments/kinematic_synthetic/test_seeds_10-19.txt`.
+Thresholds come from seeds 0–9 only (`sweep.py 0 10`). If you change a
+`kin_` threshold, the 10–19 numbers stop being a test. Calibrate on new
+seeds, and pre-register again before running fresh test seeds.
+
+## 4. Experimental data
 
 ```bash
 python experiments/pendulum/run.py          # analyses A, B, C of PROTOCOL.md, about 10 seconds
 python experiments/pendulum/explore_lag.py  # the exploratory follow-up, E1
+python experiments/pendulum/run_kinematics.py   # 0.2: KINEMATIC_MISMATCH on A, B, C, E1
 ```
 
 The bundles are committed, so these run offline. `prepare.py` rebuilds them
@@ -139,7 +161,7 @@ its first fit.
 
 ## Before a release
 
-1. `python -m pytest -q` is green, with PySINDy installed (25 passed).
+1. `python -m pytest -q` is green, with PySINDy installed (35 passed).
 2. `mihenk validate --seeds 20` is green. If a detector or threshold changed,
    paste the new table into the README.
 3. `python experiments/pendulum/run.py` gives the flags in the table above,

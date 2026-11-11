@@ -190,3 +190,78 @@ def test_rollout_r2_on_resting_segment_is_finite():
     m = Model.from_text("x' = y\ny' = -4 x - y")
     r = scan(Bundle([x], [t], ["x", "y"]), m)
     assert r.metrics["rollout_r2_short"] > -10
+
+
+# ------------------------------------------------------------ kinematics
+from mihenk.kinematics import fit_pair, suggest_pairs, validate_pairs  # noqa: E402
+
+
+def test_kinematic_pairs_parse_and_reject():
+    assert validate_pairs(["theta=omega"], ["theta", "omega"]) == {"theta": "omega"}
+    assert validate_pairs({"theta'": "omega"}, ["theta", "omega"]) == {"theta": "omega"}
+    with pytest.raises(ValueError, match="not a variable"):
+        validate_pairs({"theta": "v"}, ["theta", "omega"])
+    with pytest.raises(ValueError, match="itself"):
+        validate_pairs({"theta": "theta"}, ["theta", "omega"])
+
+
+@pytest.mark.parametrize("sensor, field, expected", [
+    ({"omega": {"delay": 7e-4}}, "lag", 7e-4),
+    ({"omega": {"gain": 1.02}}, "gain", 1 / 1.02),
+    ({"omega": {"offset": 0.05}}, "offset", -0.05),
+])
+def test_fit_pair_recovers_sensor_imperfection(sensor, field, expected):
+    b = synth.simulate("pendulum", sensor=sensor)
+    f = fit_pair(list(zip(b.xs, b.ts)), 0, 1, window=50)
+    assert f[field] == pytest.approx(expected, rel=0.02, abs=2e-5)
+
+
+def test_kinematic_not_assessed_without_declaration_suggests_pair():
+    b = synth.simulate("pendulum")
+    b.meta.pop("kinematics")
+    r = scan(b, synth.truth_model("pendulum"))
+    c = {c.id: c for c in r.checks}["KINEMATIC_MISMATCH"]
+    assert c.status == "not_assessed" and "theta=omega" in c.reason
+
+
+def test_kinematic_clean_with_exact_sensor():
+    b = synth.simulate("pendulum")              # declares theta = omega in meta
+    r = scan(b, synth.truth_model("pendulum"))
+    assert {c.id: c.status for c in r.checks}["KINEMATIC_MISMATCH"] == "clean"
+
+
+def test_kinematic_lag_flagged_and_explained():
+    b = synth.simulate("pendulum", sensor={"omega": {"delay": 7e-4}})
+    m = Model.from_text("theta' = omega - 0.0448 sin(theta)\nomega' = -64 sin(theta) - 0.032 omega",
+                        variables=b.variables)
+    r = scan(b, m)
+    f = r.by_id("KINEMATIC_MISMATCH")[0]
+    assert f.severity == "error"
+    assert f.evidence["lag"] == pytest.approx(7e-4, rel=0.02)
+    assert f.evidence["lag_explains"] > 0.9            # the lag predicts the extra theta' term
+    damping = [c for c in f.evidence["coefficient_changes"] if c[1] == "omega"][0]
+    assert damping[3] == pytest.approx(-0.07, rel=0.05)  # correcting omega restores the damping
+
+
+def test_kinematics_argument_overrides_meta():
+    b = synth.simulate("pendulum", sensor={"omega": {"gain": 1.02}})
+    r = scan(b, synth.truth_model("pendulum"), kinematics={})
+    assert {c.id: c.status for c in r.checks}["KINEMATIC_MISMATCH"] == "not_assessed"
+
+
+def test_suggest_pairs():
+    assert suggest_pairs(synth.truth_model("pendulum")) == {"theta": "omega"}
+
+
+def test_cli_kinematic_flag(tmp_path):
+    from mihenk.bundle import Bundle as B
+
+    b = synth.simulate("pendulum", sensor={"omega": {"delay": 7e-4}})
+    b.meta.pop("kinematics")
+    b.save(tmp_path / "p.npz")
+    (tmp_path / "eq.txt").write_text("theta' = omega - 0.0448 sin(theta)\nomega' = -64 sin(theta) - 0.032 omega\n")
+    r = _cli("scan", "p.npz", "--model", "eq.txt", "--kinematic", "theta=omega", cwd=tmp_path)
+    assert r.returncode == 1 and "KINEMATIC_MISMATCH" in r.stdout, r.stdout + r.stderr
+    r = _cli("scan", "p.npz", "--model", "eq.txt", cwd=tmp_path)
+    assert "KINEMATIC_MISMATCH" not in [ln.split()[1] for ln in r.stdout.splitlines()
+                                        if ln.startswith(("ERROR", "WARNING"))]

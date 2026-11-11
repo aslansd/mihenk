@@ -76,16 +76,37 @@ coefficients loosely determined.
 
   These lead the 0.2 plan below.
 
-## Next: 0.2 — what the pendulum asked for
+### 0.2 — `KINEMATIC_MISMATCH`
+
+- **A new tier-0 check for declared derivative pairs** (`theta' = omega`),
+  given with `kinematics=`, `--kinematic theta=omega`, or the bundle's meta.
+  It does four things:
+  - fits `p' = gain * v(t + lag) + offset` derivative-free, overall and per
+    trajectory;
+  - compares the discovered `p'` with `v`;
+  - tests whether the lag predicts the extra terms (lag times the discovered
+    `v'` equation);
+  - refits the other equations with `v` corrected, so it can show that a
+    sensor flaw changes the law.
+
+  Undeclared pairs are suggested.
+- **Calibrated on seeds 0–9, tested on seeds 10–19,** with predictions
+  committed in between
+  ([experiments/kinematic_synthetic](experiments/kinematic_synthetic/RESULTS.md)):
+  5 held, 1 partly held. There were no false alarms in 80 runs. A 0.7 ms lag
+  is an error up to 0.5% noise. At 1% position noise only half of the lags
+  are caught.
+- **On the experimental pendulum** (a development case, since the check was
+  designed after seeing it): ω runs 0.85 ms late, and the lag accounts for
+  98% of SINDy's extra θ' terms. The per-segment lags match last release's
+  independent estimate to within 0.03 ms.
+- **`synth`** gains a `pendulum` system and a `sensor=` option (lag, gain
+  and offset for any variable). `mihenk fit` gains `--fourier N`.
+
+## Next: 0.3 — the rest of what the pendulum asked for
 
 Ordered by what the experimental test showed, then by what was already planned.
 
-- **`KINEMATIC_MISMATCH`.** Let the user declare kinematic pairs (`theta' =
-  omega`). Then check that the discovered equation respects them, and
-  estimate the lag between a measured derivative and the differentiated
-  variable. On the pendulum this one check would have named the problem
-  directly: "your ω lags dθ/dt by 0.73 ms". Instead it surfaced only as
-  unstable extra terms.
 - **Declared physical properties.** Optional statements such as "this system
   loses energy" (with an energy function) or "this quantity is conserved".
   mihenk then checks them along the data and along rollouts. On the
@@ -105,15 +126,15 @@ Ordered by what the experimental test showed, then by what was already planned.
   report the relation that matters (sin θ ≈ π − θ).
 - **A second experimental system** with a different structure, such as a
   chemical oscillator or coupled oscillators, pre-registered the same way.
-- **A calibration/test split for the synthetic validation.** Fix the
-  thresholds on one set of seeds and systems. Record that split in a commit
-  before running the other set, and quote only the other set. 0.1 thresholds
-  were adjusted while looking at seeds 0–9.
+- **A calibration/test split for the whole synthetic validation.** 0.2 did
+  this for `KINEMATIC_MISMATCH` (seeds 0–9 calibrate, 10–19 test, predictions
+  committed in between). The 0.1 checks still have thresholds adjusted while
+  looking at seeds 0–9 of the same suite they are scored on.
 - **More systems in `synth`:**
   - a Rössler attractor;
   - a forced Duffing oscillator;
-  - a pendulum with dry friction, a velocity lag and an angle offset, the
-    three effects the experiment showed;
+  - dry friction and an angle offset for the `pendulum` system. 0.2 added
+    the pendulum itself, and sensor lag, gain and offset for any variable;
   - a higher-dimensional system.
 - **`mihenk design`.** Before an experiment, simulate a known law at your
   planned sampling rate, duration, noise level and number of trajectories,
@@ -150,7 +171,7 @@ Ordered by what the experimental test showed, then by what was already planned.
   statistics are screening numbers. Non-overlapping windows or a corrected
   variance would make them proper tests.
 
-## Known limits in 0.1.1
+## Known limits in 0.2
 
 - One mild-noise Lorenz trajectory in 20 lies close to a quadric surface. A
   constant term then appears in some refits, and mihenk warns. The law is
@@ -164,3 +185,10 @@ Ordered by what the experimental test showed, then by what was already planned.
   energy into a free pendulum is not flagged as such.
 - A recording that ends at rest is used as held-out data, although it tests
   nothing. mihenk does not yet warn about held-out segments without motion.
+- `KINEMATIC_MISMATCH` corrects `v` with one lag, gain and offset per pair.
+  A lag that changes within a recording (the pendulum's grows from 0.75 to
+  1.35 ms as swings shrink) is reported per trajectory, but it is not
+  corrected per trajectory. The coefficient-change estimate also cannot add
+  terms the equation lacks, such as the pendulum's missing damping.
+- `KINEMATIC_MISMATCH` searches lags up to 10 samples either way
+  (`kin_max_lag`). A longer lag is reported as at the search limit.

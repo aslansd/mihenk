@@ -9,3 +9,4 @@ build/
 .pytest_cache/
 .daftar/
 __MACOSX/
+*.egg-info/

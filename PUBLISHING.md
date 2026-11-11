@@ -9,7 +9,7 @@
    hard to write, the release is not ready.
 3. **Run the tests**, with PySINDy installed:
    ```bash
-   python -m pytest -q                  # must be 25 passed, none skipped
+   python -m pytest -q                  # must be 35 passed, none skipped
    ```
 4. **Re-run the validation numbers quoted in the README** if any detector or
    threshold changed:

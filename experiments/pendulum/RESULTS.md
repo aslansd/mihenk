@@ -166,13 +166,56 @@ does, and the library has no `sign(ω)` term for it.
 | finding | where it goes |
 |---|---|
 | R² on a resting segment | **fixed in 0.1.1** |
-| velocity lag shows up as θ' ≠ ω | roadmap: a `KINEMATIC_MISMATCH` check for declared pairs (θ' = ω), with a lag estimate |
+| velocity lag shows up as θ' ≠ ω | **done in 0.2**: `KINEMATIC_MISMATCH` (see below) |
 | an energy-injecting law passes | roadmap: declared physical properties (dissipative, conserved quantities) |
 | `UNDERFIT` misses odd functions | roadmap: search two degrees beyond the library, or by parity |
 | drifting long rollouts | roadmap: a chaos-aware long-rollout check |
 | relations reported as "1 ≈ θ" when θ barely moves around a large offset (C) | roadmap: centre columns before looking for relations |
 
 No threshold was changed.
+
+## mihenk 0.2: `KINEMATIC_MISMATCH` (development case, not a test)
+
+This check was **designed after** these data showed the lag, so applying it
+here only shows that it does what it was built for. Its test is the
+pre-registered synthetic sweep in
+[../kinematic_synthetic](../kinematic_synthetic/RESULTS.md), where it scored
+5 held and 1 partly held. Reproduce with
+`python experiments/pendulum/run_kinematics.py`. The reports are in
+`results/kinematics/`.
+
+| analysis | ω comes from | result with `theta = omega` declared |
+|---|---|---|
+| A | the lab's filtered velocity | **error**: ω runs late by 0.85 ms (F = 2.8×10³); the lag accounts for 98% of the extra θ' terms |
+| B | the lab's filtered velocity | warning: the same lag and the same 98% |
+| C | Savitzky–Golay derivative of θ | clean |
+| E1 | Savitzky–Golay derivative of θ | clean |
+
+C and E1 are the controls. Their ω is computed from θ itself, so the pair
+holds by construction, and the check stays quiet.
+
+The per-segment lags are fitted derivative-free, on window increments of θ.
+They agree with `explore_lag.py`, which matched ω against dθ/dt instead:
+
+| segment | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| `KINEMATIC_MISMATCH` (ms) | 0.75 | 0.80 | 0.85 | 0.95 | 1.10 | 1.35 |
+| `explore_lag.py` (ms) | 0.73 | 0.79 | 0.87 | 0.97 | 1.10 | 1.38 |
+
+**What the check cannot do here.** Correcting ω changes A's ω' constant by
+36%. But A's ω' has no ω term, so the correction cannot show the damping
+coming back. The check only re-weighs terms the equation already has. We also
+rediscovered with SINDy on ω shifted by the fitted lag, both one global lag
+and one lag per segment. A damping term appears (−0.054 and −0.052 ω), but θ'
+still keeps extra terms. A constant shift cannot undo a lag that grows as the
+swings shrink. Computing ω from θ (E1) is the better repair, and it is the
+first one the finding suggests.
+
+**A synthetic confirmation of the explanation.** `synth.simulate("pendulum",
+sensor={"omega": {"delay": 7e-4}})` puts a 0.7 ms lag on a pendulum with known
+law. SINDy then returns θ' = 0.9999 ω − 0.0448 sin θ (−64 × 0.0007 = −0.0448),
+and the damping falls from −0.070 to −0.032. That is the experiment's pattern,
+now with ground truth. There, correcting ω restores the damping to −0.070.
 
 ## Data license
 

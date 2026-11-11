@@ -1,0 +1,70 @@
+# mihenk report: pendulum E1 with theta' = omega declared
+
+*mihenk 0.1.1*
+
+1 error(s), 2 warning(s): do not interpret this equation as the law yet
+
+## Equation
+
+```
+theta' = omega
+omega' = 0.1025 - 0.07709 theta - 0.05721 omega + 63.95 sin(theta) - 0.2234 cos(theta) - 0.05026 sin(omega)
+```
+
+## Findings
+
+### ERROR `DERIVATIVE_ARTIFACT` (tier 0)
+*where:* omega'  
+Without numerical differentiation the data give the constant term the opposite sign (-0.005009 vs +0.1025); such terms are most likely produced by noise amplified while estimating derivatives. Coefficients that move by more than 30% when estimated derivative-free: theta -0.07709 -> -0.03586.
+
+*fix:* Refit with smoothed or weak-form derivatives (e.g. PySINDy's SmoothedFiniteDifference) and report the derivative-free coefficients next to the discovered ones.
+
+### WARNING `FORKING_PATHS` (tier 1)
+*where:* analysis  
+The equation's structure comes back under only 2 of 5 defensible analysis variants (3 distinct structures in total). Which law you report depends on analysis choices.
+
+*fix:* Report the variants, or pick the analysis on held-out data before looking at the equation.
+
+### WARNING `WEAK_TERM` (tier 0)
+*where:* omega'  
+Dropping the constant term (F = 0.00038), theta (F = 0.195) barely changes the fit (F below 10): the data cannot tell the equation with these terms from the equation without them.
+
+*fix:* Do not interpret these terms without more or less noisy data; a sparser equation fits as well.
+
+## Checks
+
+| check | tier | status | note |
+|---|---|---|---|
+| EQUIFINALITY | 0 | clean |  |
+| DERIVATIVE_ARTIFACT | 0 | flagged |  |
+| WEAK_TERM | 0 | flagged |  |
+| UNDERFIT | 0 | clean |  |
+| ROLLOUT_TRAP | 0 | clean |  |
+| KINEMATIC_MISMATCH | 0 | clean |  |
+| UNSTABLE_STRUCTURE | 1 | clean |  |
+| FORKING_PATHS | 1 | flagged |  |
+| RECOVERY | 2 | not_assessed | no true equations (synthetic data only) |
+
+## Metrics
+
+| metric | value |
+|---|---|
+| variables | 2 |
+| trajectories | 6 |
+| samples | 55001 |
+| active_terms | 7 |
+| derivative_r2 | 0.9736 |
+| integral_r2 | 0.9999 |
+| library_relations | 0 |
+| rollout_r2_short | 1 |
+| kin_theta_lag | 0 |
+| kin_theta_gain | 1 |
+| structure_reproduced | 0.4 |
+| structure_under_variants | 0.4 |
+| distinct_structures | 3 |
+
+## Notes
+
+- held-out data: held-out trajectories (val)
+- derivative-free reference: integral form over windows of 50 samples
+- candidate library for alternatives: 7 terms

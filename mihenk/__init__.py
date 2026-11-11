@@ -10,7 +10,7 @@ analysis choices.
     report = mihenk.scan_pysindy(sindy, x, t)      # tiers 0-1 with a fitted PySINDy model
 """
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 
 from .bundle import Bundle  # noqa: E402
 from .model import Model  # noqa: E402
