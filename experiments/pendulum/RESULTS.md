@@ -4,18 +4,18 @@ The protocol and predictions are in [PROTOCOL.md](PROTOCOL.md), committed
 (`59fbb4b`) before any fit or scan. Everything below was run afterwards with
 the analyses and thresholds fixed there.
 
-- `results/run_mihenk-0.1.0.txt`: the pre-registered run, with mihenk 0.1.0.
-- `results/run_mihenk-0.1.1.txt`: the same analyses after the one bug fix this
+- `results/logs/run_mihenk-0.1.0.txt`: the pre-registered run, with mihenk 0.1.0.
+- `results/logs/run_mihenk-0.1.1.txt`: the same analyses after the one bug fix this
   test exposed (see C). The fix changes no flag in any analysis.
-- `results/A`, `B`, `C`, `E1`: full reports (HTML, JSON, Markdown, text).
+- `results/0.1-analyses/A`, `B`, `C`, `E1`: full reports (HTML to read, JSON with every number).
 
 Reproduce:
 
 ```bash
 git clone --depth 1 https://github.com/dynamicslab/MultiArm-Pendulum
-python experiments/pendulum/prepare.py MultiArm-Pendulum   # optional: the bundles are committed
-python experiments/pendulum/run.py
-python experiments/pendulum/explore_lag.py
+python experiments/pendulum/scripts/prepare.py MultiArm-Pendulum   # optional: data/ holds the bundles
+python experiments/pendulum/scripts/run.py
+python experiments/pendulum/scripts/explore_lag.py
 ```
 
 ## Score
@@ -60,7 +60,7 @@ coefficients:
 - −64·D = −0.0427, so D ≈ 0.67 ms;
 - 0.0427·π = 0.134, the constant.
 
-Measured directly (`explore_lag.py`), the lab's filtered ω lags dθ/dt by:
+Measured directly (`scripts/explore_lag.py`), the lab's filtered ω lags dθ/dt by:
 
 | segment | 1 | 2 | 3 | 4 | 5 | 6 |
 |---|---|---|---|---|---|---|
@@ -181,8 +181,8 @@ here only shows that it does what it was built for. Its test is the
 pre-registered synthetic sweep in
 [../kinematic_synthetic](../kinematic_synthetic/RESULTS.md), where it scored
 5 held and 1 partly held. Reproduce with
-`python experiments/pendulum/run_kinematics.py`. The reports are in
-`results/kinematics/`.
+`python experiments/pendulum/scripts/run_kinematics.py`. The reports are in
+`results/0.2-kinematics/`.
 
 | analysis | ω comes from | result with `theta = omega` declared |
 |---|---|---|
@@ -221,6 +221,6 @@ now with ground truth. There, correcting ω restores the damping to −0.070.
 
 The data come from <https://github.com/dynamicslab/MultiArm-Pendulum>
 (MIT license, © 2022 dynamicslab). The license text is in
-[DATA_LICENSE.txt](DATA_LICENSE.txt). The bundles here are derived from
+[data/LICENSE.txt](data/LICENSE.txt). The bundles in `data/` are derived from
 `SinglePendulumDataForParameterEstimation.mat` and
-`SingleDataFreeSwing_1_Dt_0_0001.mat` by `prepare.py`.
+`SingleDataFreeSwing_1_Dt_0_0001.mat` by `scripts/prepare.py`.

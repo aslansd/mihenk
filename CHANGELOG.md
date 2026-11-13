@@ -1,5 +1,33 @@
 # Changelog
 
+## Unreleased
+
+GitHub only. The package code changed in one place (`Report.save`), and that
+ships with the next release.
+
+### Changed: a tidier repository
+- `INSTALL.md`, `TESTING.md`, `PUBLISHING.md` and `ROADMAP.md` moved to
+  `docs/`. `README.md`, `CHANGELOG.md` and `LICENSE` stay at the root.
+- Each experiment has the same shape: `PROTOCOL.md` and `RESULTS.md`, plus
+  `data/`, `scripts/` and `results/`. The pendulum results are split by
+  release (`0.1-analyses/`, `0.2-kinematics/`, `logs/`). The protocols were
+  moved, not edited.
+- `experiments/README.md` indexes the experiments and their layout.
+- Experiment reports keep `report.html` and `report.json`. The `.md` and
+  `.txt` copies were duplicates and are gone.
+- The 0.2 kinematic reports were regenerated: they were labelled 0.1.1
+  because they ran just before the version bump. Their findings are
+  unchanged.
+- Scratch files at the root (`lorenz.npz`, `model.json`, `report.html`,
+  `report/`, `mihenk_report/`) were removed, and `.gitignore` now keeps them
+  out.
+- `dist/` is no longer tracked. Built files live on PyPI, and
+  `docs/PUBLISHING.md` says so.
+
+### Added
+- `Report.save(out_dir, formats=...)` writes only the chosen formats. The
+  default is still all four.
+
 ## 0.2.0 — 2026-11-11
 
 ### Added

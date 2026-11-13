@@ -265,3 +265,11 @@ def test_cli_kinematic_flag(tmp_path):
     r = _cli("scan", "p.npz", "--model", "eq.txt", cwd=tmp_path)
     assert "KINEMATIC_MISMATCH" not in [ln.split()[1] for ln in r.stdout.splitlines()
                                         if ln.startswith(("ERROR", "WARNING"))]
+
+
+def test_report_save_formats(tmp_path):
+    r = scan(synth.simulate("lorenz"), synth.truth_model("lorenz"))
+    out = r.save(tmp_path / "rep", formats=("html", "json"))
+    assert sorted(p.name for p in out.iterdir()) == ["report.html", "report.json"]
+    with pytest.raises(ValueError, match="unknown report format"):
+        r.save(tmp_path / "bad", formats=("pdf",))

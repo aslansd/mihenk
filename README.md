@@ -4,8 +4,8 @@
 
 *Mihenk* (Turkish *mihenk taşı*, Azerbaijani *mehək daşı*, Persian *mahak* محک) is the touchstone used to test whether gold is real.
 
-[Install](INSTALL.md) · [Testing](TESTING.md) · [Roadmap](ROADMAP.md) ·
-[Publishing](PUBLISHING.md) · [Changelog](CHANGELOG.md)
+[Install](docs/INSTALL.md) · [Testing](docs/TESTING.md) · [Roadmap](docs/ROADMAP.md) ·
+[Publishing](docs/PUBLISHING.md) · [Changelog](CHANGELOG.md) · [Experiments](experiments/README.md)
 
 ```bash
 pip install "mihenk[pysindy]"
@@ -168,7 +168,7 @@ partly held and 1 failed. In brief:
     beyond `UNDERFIT`'s one-degree search, and within the observed swings
     the cubic is a fine law anyway.
 
-  These lead the [roadmap](ROADMAP.md).
+  These lead the [roadmap](docs/ROADMAP.md).
 
 mihenk 0.2 adds the check this test asked for, `KINEMATIC_MISMATCH`. Declare
 θ' = ω and it names the lag directly: 0.85 ms, accounting for 98% of the
@@ -184,7 +184,7 @@ limit.
 
 ## Limits (read these)
 
-What comes next is in [ROADMAP.md](ROADMAP.md).
+What comes next is in [ROADMAP.md](docs/ROADMAP.md).
 
 
 - **Research prototype (alpha).** Thresholds are calibrated on mihenk's own toy systems and were not changed after the first experimental test. Treat them as starting points.
@@ -194,6 +194,16 @@ What comes next is in [ROADMAP.md](ROADMAP.md).
 - mihenk checks only physics you can see in the data. It does not know that a free pendulum must lose energy unless a check for that exists (see the roadmap).
 - The integral form uses overlapping windows, so F statistics are screening statistics, not exact tests.
 - For chaotic systems a low full-length rollout R² is expected. mihenk compares long-run spread and mean instead.
+
+## Repository layout
+
+```
+mihenk/          the package (core checks; adapters/ for PySINDy)
+tests/           the test suite (python -m pytest -q)
+docs/            INSTALL, TESTING, PUBLISHING, ROADMAP
+experiments/     pre-registered tests: protocol, data, scripts and results per experiment
+CHANGELOG.md     what changed in each release
+```
 
 ## Provenance
 

@@ -10,3 +10,15 @@ build/
 .daftar/
 __MACOSX/
 *.egg-info/
+
+# build outputs (PyPI keeps the released files)
+dist/
+
+# scratch output from trying mihenk at the repository root
+/*.npz
+/model.json
+/report.html
+/report/
+/mihenk_report/
+
+# Python and OS clutter

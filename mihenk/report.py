@@ -81,13 +81,24 @@ class Report:
     def __getitem__(self, key):
         return self.to_dict()[key]
 
-    def save(self, out_dir) -> Path:
+    FORMATS = ("json", "md", "txt", "html")
+
+    def save(self, out_dir, formats=FORMATS) -> Path:
+        """Write ``report.<format>`` for each of ``formats`` (default: json, md, txt, html)."""
+        unknown = set(formats) - set(self.FORMATS)
+        if unknown:
+            raise ValueError(f"unknown report format(s): {', '.join(sorted(unknown))}; "
+                             f"choose from {', '.join(self.FORMATS)}")
         out = Path(out_dir)
         out.mkdir(parents=True, exist_ok=True)
-        (out / "report.json").write_text(json.dumps(self.to_dict(), indent=2, default=_jsonable))
-        (out / "report.md").write_text(self.render_markdown())
-        (out / "report.txt").write_text(self.render_text())
-        (out / "report.html").write_text(self.render_html())
+        writers = {
+            "json": lambda: json.dumps(self.to_dict(), indent=2, default=_jsonable),
+            "md": self.render_markdown,
+            "txt": self.render_text,
+            "html": self.render_html,
+        }
+        for fmt in formats:
+            (out / f"report.{fmt}").write_text(writers[fmt]())
         return out
 
     # ------------------------------------------------------------ rendering

@@ -2,7 +2,8 @@
 
 The predictions and thresholds were committed in [PROTOCOL.md](PROTOCOL.md)
 (`6a9e672`) before these seeds were run. The raw outputs are
-`calibration_seeds_0-9.txt` and `test_seeds_10-19.txt`.
+`results/calibration_seeds_0-9.txt` and `results/test_seeds_10-19.txt`, and
+the script is `scripts/sweep.py`.
 
 ```
 noise 0.0    none        error  0  warning  0  clean 10 | lag est +0.000 samp, share 0.0000, F median 6.13
