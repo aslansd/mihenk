@@ -28,6 +28,7 @@ import sympy as sp
 
 from . import __version__
 from . import kinematics as _kinematics
+from . import physics as _physics
 from . import numerics as N
 from .bundle import Bundle
 from .model import Model, candidate_library, evaluate_terms, format_rhs, polynomial_library, term_label
@@ -43,13 +44,18 @@ class Thresholds:
     deriv_rel_warning: float = 0.3       # relative gap, model vs derivative-free coefficient
     underfit_gain: float = 0.3           # a left-out term that removes this share of the residual
     underfit_f: float = 100.0            # ...with at least this F statistic
-    underfit_share: float = 0.01         # ...and this share of the signal itself
+    underfit_share: float = 0.001        # ...and this share of the signal itself (a warning)
+    underfit_share_error: float = 0.01   # an error needs this share of the signal
+    underfit_degrees: int = 2            # search this many polynomial degrees beyond the library
     rollout_fit_r2: float = 0.9          # derivative fit counted as "good" above this
     rollout_r2: float = 0.5              # short-horizon rollout R² below this is a trap
     rollout_horizon: float = 0.1         # fraction of each test segment used for the short rollout
     bounds_factor: float = 2.0           # escape = leaving the data's box widened by this many ranges
     stats_std_ratio: float = 0.5         # long rollout std must be within this factor of the data's
     stats_mean_shift: float = 0.5        # long rollout mean shift, in data standard deviations
+    rollout_long_r2: float = 0.8         # full-length R² below this is drift, for non-chaotic equations
+    twin_eps: float = 1e-6               # twin rollout starts this fraction of the data's range away
+    twin_growth: float = 1000.0          # twins whose gap grows more than this factor: chaotic
     n_boot: int = 30                     # tier 1 refits for structural stability
     n_blocks: int = 10                   # blocks per trajectory for the block bootstrap
     stable_freq_warning: float = 0.6     # a found term should reappear in this share of refits
@@ -67,6 +73,13 @@ class Thresholds:
     kin_report_offset: float = 0.002     # report an offset from this fraction of v's RMS
     kin_coef_change: float = 0.25        # correcting the mismatch moves a coefficient this much: error
     kin_coef_min_share: float = 0.001    # ...counting only terms carrying this share of the equation
+    phys_inject: float = 0.1             # dissipates: equation gains H at this fraction of the data's loss: error
+    phys_ratio_low: float = 0.5          # dissipates: equation loses H at under this fraction of the data's rate
+    phys_ratio_high: float = 2.0         # ...or over this multiple of it: warning
+    phys_data_min: float = 0.001         # data loss below this fraction of H's term size: too little to compare
+    phys_rollout_gain: float = 0.1       # dissipates: a simulation raising H by this share of its range: error
+    phys_conserve_rel: float = 0.01      # conserves: rms dH/dt above this fraction of H's term size
+    phys_conserve_drift: float = 0.05    # conserves: simulated drift of H above this share of its range
 
     def update(self, overrides: dict) -> "Thresholds":
         names = {f.name: f.type for f in fields(self)}
@@ -81,7 +94,7 @@ Refit = Callable[[list], Model]   # list of (x, t) pairs -> Model
 
 
 def scan(bundle: Bundle, model: Model, refit: Refit | None = None, variants: dict | None = None,
-         thresholds: Thresholds | None = None, seed: int = 0, kinematics=None) -> Report:
+         thresholds: Thresholds | None = None, seed: int = 0, kinematics=None, properties=None) -> Report:
     """Check a discovered equation against the data it came from.
 
     ``refit`` (tier 1) re-runs the discovery on a list of ``(x, t)`` pairs and
@@ -92,6 +105,10 @@ def scan(bundle: Bundle, model: Model, refit: Refit | None = None, variants: dic
     ``kinematics`` declares derivative pairs, ``{"theta": "omega"}`` for
     theta' = omega (default: ``bundle.meta["kinematics"]``), and unlocks
     ``KINEMATIC_MISMATCH``.
+
+    ``properties`` declares physics, ``{"dissipates": "0.5*omega**2 - 64*cos(theta)"}``
+    or ``{"conserves": "H"}`` (default: ``bundle.meta["properties"]``), and unlocks
+    ``PHYSICS_VIOLATION``.
     """
     th = thresholds or Thresholds()
     if list(model.variables) != list(bundle.variables):
@@ -103,6 +120,8 @@ def scan(bundle: Bundle, model: Model, refit: Refit | None = None, variants: dic
         detector(ctx, findings, checks)
     _kinematics.check(ctx, kinematics if kinematics is not None else bundle.meta.get("kinematics"),
                       findings, checks)
+    _physics.check(ctx, properties if properties is not None else bundle.meta.get("properties"),
+                   findings, checks)
     rng = np.random.default_rng(seed)
     if refit is None:
         for cid in ("UNSTABLE_STRUCTURE",):
@@ -299,17 +318,42 @@ def _check_weak_terms(ctx: _Context, findings, checks):
 
 # ============================================================ EQUIFINALITY
 def _find_relations(ctx: _Context):
-    """Combinations of candidate terms that are (nearly) zero on the observed states."""
+    """Combinations of candidate terms that are (nearly) constant on the observed states.
+
+    Columns are centred before the search, so a variable that barely moves
+    around a large offset (theta = 3.14 +- 0.07) is not mistaken for the
+    constant term. The constant enters each relation through the combination's
+    mean: sin(theta) + theta - pi = 0 is found as such, not as "1 = theta".
+    """
     lib, th = ctx.library, ctx.th
-    Z = N.normalized_columns(ctx.theta_ref)
-    _, s, Vt = np.linalg.svd(Z, full_matrices=False)  # unit-norm columns: s is the relation's relative size
+    T = ctx.theta_ref
+    moving = [c for c in range(len(lib)) if np.ptp(T[:, c]) > 0]
+    const = [c for c in range(len(lib)) if lib[c] == 1]
     relations = []
-    for sv, v in zip(s[::-1], Vt[::-1]):
-        if sv >= th.nullspace_tol:
-            break
-        v = v / np.max(np.abs(v))
-        support = [c for c in range(len(lib)) if abs(v[c]) > 0.05]
-        relations.append((float(sv), {lib[c]: float(v[c]) for c in support}, set(support)))
+    if len(moving) >= 2:
+        means = T[:, moving].mean(axis=0)
+        C = T[:, moving] - means
+        norms = np.linalg.norm(C, axis=0)
+        norms[norms == 0] = 1.0
+        _, s, Vt = np.linalg.svd(C / norms, full_matrices=False)
+        for sv, v in zip(s[::-1], Vt[::-1]):
+            if sv >= th.nullspace_tol:
+                break
+            v = v / np.max(np.abs(v))
+            keep = [k for k in range(len(moving)) if abs(v[k]) > 0.05]   # judged on the variation
+            a = v / norms                                   # the same relation in the data's units
+            offset = float(a[keep] @ means[keep])           # sum a_j theta_j = offset on the data
+            coef = {lib[moving[k]]: float(a[k]) for k in keep}
+            support = {moving[k] for k in keep}
+            if const:
+                coef[lib[const[0]]] = -offset
+            top = max(abs(x) for x in coef.values())
+            coef = {t: x / top for t, x in coef.items()}
+            if const and abs(coef[lib[const[0]]]) > 0.05:  # the constant follows the same 5% rule
+                support.add(const[0])
+            elif const:
+                coef.pop(lib[const[0]])
+            relations.append((float(sv), coef, support))
     ctx.relations = relations
     ctx.related = set().union(*[r[2] for r in relations]) if relations else set()
 
@@ -456,7 +500,7 @@ def _check_underfit(ctx: _Context, findings, checks):
     m, th = ctx.model, ctx.th
     lib = ctx.library
     deg = max(2, m.max_degree())
-    extra = [t for t in polynomial_library(m.variables, deg + 1) if t not in ctx.lib_index]
+    extra = [t for t in polynomial_library(m.variables, deg + th.underfit_degrees) if t not in ctx.lib_index]
     if extra:
         theta_x = lambda x: evaluate_terms(extra, m.variables, x)  # noqa: E731
         A_x, _ = N.integral_targets(ctx.pairs, theta_x, ctx.window)
@@ -490,11 +534,12 @@ def _check_underfit(ctx: _Context, findings, checks):
         share = (r0 - (1 - gain) * r0) / signal
         rows[-1].insert(4, share)
         if gain >= th.underfit_gain and F >= th.underfit_f and share >= th.underfit_share:
+            severe = gain >= 2 * th.underfit_gain and share >= th.underfit_share_error
             flagged = True
             where_from = ("It is in the candidate library, so the sparsity step removed it"
                           if in_lib else "It is not in the candidate library at all")
             findings.append(Finding(
-                "UNDERFIT", "error" if gain >= 2 * th.underfit_gain else "warning", 0,
+                "UNDERFIT", "error" if severe else "warning", 0,
                 f"Adding {_say(all_terms[c])} cuts this equation's derivative-free residual by {gain:.0%} "
                 f"(F = {F:.3g}). {where_from}; the other coefficients may be compensating for it.",
                 _where(m, i, all_terms[c]),
@@ -505,7 +550,8 @@ def _check_underfit(ctx: _Context, findings, checks):
         "columns": ["equation", "term", "in library", "residual reduction", "share of signal", "F"],
         "rows": rows,
         "caption": "For each equation, the single term not in it that most reduces the derivative-free residual "
-                   "(searching the library and one polynomial degree beyond it).",
+                   "(searching the library and up to two polynomial degrees beyond it; odd functions such as "
+                   "sin(theta) skip a degree).",
     }
     checks.append(Check("UNDERFIT", 0, "flagged" if flagged else "clean"))
 
@@ -528,9 +574,12 @@ def _check_rollout(ctx: _Context, findings, checks):
         ok = np.all(np.isfinite(y), axis=1)
         r = N.r2(x[:h][ok], y[ok], var=var_all) if ok.sum() > 2 else float("nan")
         short_r2.append(r)
-        rows.append([f"test segment {k}", "short", h, status, r])
-    # long rollouts from the start of each trajectory
-    long_status, stats_bad = [], []
+        rows.append([f"test segment {k}", "short", h, status, r, "-", float("nan")])
+    # long rollouts from the start of each trajectory, each with a twin started a hair away.
+    # If the twins stay together the equation is not chaotic on this time scale, so the
+    # full-length R² is a fair test; if they separate, only long-run spread and mean are.
+    long_status, stats_bad, long_bad = [], [], []
+    eps = th.twin_eps * span
     for k, (x, t) in enumerate(ctx.pairs):
         y, status = N.rollout(m, x[0], t, bounds)
         long_status.append(status)
@@ -542,15 +591,25 @@ def _check_rollout(ctx: _Context, findings, checks):
             bad = (ratio < th.stats_std_ratio) | (ratio > 1 / th.stats_std_ratio) | (mean_shift > th.stats_mean_shift)
             if bad.any():
                 stats_bad.append((k, [m.variables[q] for q in np.where(bad)[0]], ratio, mean_shift))
-            rows.append([f"trajectory {k}", "full", len(t), status, N.r2(x[ok], y[ok], var=var_all)])
+            y2, status2 = N.rollout(m, x[0] + eps, t, bounds)
+            ok2 = ok & np.all(np.isfinite(y2), axis=1)
+            sep = float(np.max(np.abs(y2[ok2] - y[ok2]) / span)) if status2 == "ok" else float("inf")
+            growth = sep / th.twin_eps                      # how much the twins' gap grew
+            chaotic = growth > th.twin_growth
+            r2_full = N.r2(x[ok], y[ok], var=var_all)
+            if not chaotic and r2_full < th.rollout_long_r2:
+                long_bad.append((k, r2_full, growth))
+            rows.append([f"trajectory {k}", "full", len(t), status, r2_full,
+                         "chaotic (spread and mean only)" if chaotic else "not chaotic (R² counts)", growth])
         else:
-            rows.append([f"trajectory {k}", "full", len(t), status, float("nan")])
+            rows.append([f"trajectory {k}", "full", len(t), status, float("nan"), "-", float("nan")])
     ctx.details["Rollouts (integrating the equation)"] = {
-        "columns": ["segment", "horizon", "samples", "status", "R²"],
+        "columns": ["segment", "horizon", "samples", "status", "R²", "regime", "twin gap growth"],
         "rows": rows,
         "caption": "Short rollouts start each held-out segment; full rollouts integrate each trajectory from its "
-                   "first sample. For chaotic systems a low full-length R² is expected; the long-run statistics "
-                   "check compares spread and mean instead.",
+                   "first sample, together with a twin started a hair away. A gap between twins that grows by "
+                   "orders of magnitude marks a chaotic equation, for which a low full-length R² is expected, so "
+                   "only spread and mean are compared. Otherwise the full-length R² is a fair test.",
     }
     r2s = [r for r in short_r2 if r == r]
     ctx.metrics["rollout_r2_short"] = float(np.median(r2s)) if r2s else float("nan")
@@ -575,6 +634,19 @@ def _check_rollout(ctx: _Context, findings, checks):
             f"from held-out initial states does not follow the data (worst R² {min(r2s):.3f}).",
             "rollout", "Judge the equation by simulation, not by its derivative fit.",
             {"rollout_r2": short_r2}))
+    if long_bad and not escaped:
+        flagged = True
+        k, r2_full, sep = min(long_bad, key=lambda b: b[1])
+        findings.append(Finding(
+            "ROLLOUT_TRAP", "warning", 0,
+            f"Simulated over the whole trajectory, the equation drifts away from the data (worst full-length "
+            f"R² {r2_full:.3f}, below {th.rollout_long_r2:g}; {len(long_bad)} of {len(ctx.pairs)} trajectories). "
+            f"Twin simulations started a hair apart stay together (their gap grows only {sep:.3g}-fold), so the "
+            f"equation is not chaotic here and the drift is not sensitivity to the start.",
+            f"trajectory {k}",
+            "Look for a missing or biased slow term (damping, a small drift or forcing): such terms barely "
+            "change the derivative fit but decide where a simulation ends up.",
+            {"trajectories": [b[0] for b in long_bad], "r2": [b[1] for b in long_bad]}))
     if stats_bad and not escaped:
         flagged = True
         k, vars_, ratio, shift = stats_bad[0]

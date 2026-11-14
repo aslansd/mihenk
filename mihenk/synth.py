@@ -64,6 +64,16 @@ SYSTEMS = {
         lambda rng: np.array([rng.choice([-1, 1]) * rng.uniform(1.0, 2.0), 0.0]), 0.002, 10.0, 1,
         "damped pendulum, theta = 0 hanging down; coefficients like the Brunton-lab experiment",
         fourier=1, kinematics={"theta": "omega"}),
+    "pendulum_small": System(
+        ["theta", "omega"], {"theta": "omega", "omega": "-64*sin(theta) - 0.07*omega"},
+        lambda rng: np.array([rng.choice([-1, 1]) * rng.uniform(0.05, 0.1), 0.0]), 0.002, 10.0, 1,
+        "the pendulum with swings of 0.05-0.1 rad, where sin(theta) and theta are nearly the same",
+        fourier=1, kinematics={"theta": "omega"}),
+    "pendulum_dry": System(
+        ["theta", "omega"], {"theta": "omega", "omega": "-64*sin(theta) - 0.07*omega - 0.5*tanh(omega/0.05)"},
+        lambda rng: np.array([rng.choice([-1, 1]) * rng.uniform(1.0, 2.0), 0.0]), 0.002, 10.0, 1,
+        "the pendulum with dry (Coulomb) friction, smoothed as tanh(omega/0.05); it can come to rest",
+        fourier=1, kinematics={"theta": "omega"}),
     "linear_damped": System(
         ["x", "y"], {"x": "-0.1*x + 2*y", "y": "-2*x - 0.1*y"},
         lambda rng: rng.uniform(-2, 2, 2), 0.01, 20.0, 1, "damped linear oscillator"),

@@ -98,7 +98,7 @@ def make_variants(sindy, variables=None, threshold_factors=(0.5, 1.0, 1.5)) -> d
 
 
 def scan_pysindy(sindy, x, t, *, feature_names=None, name="pysindy", val=None, thresholds=None,
-                 variants=True, seed=0, meta=None, kinematics=None):
+                 variants=True, seed=0, meta=None, kinematics=None, properties=None):
     from ..scan import scan
 
     variables = list(feature_names or sindy.feature_names)
@@ -111,7 +111,7 @@ def scan_pysindy(sindy, x, t, *, feature_names=None, name="pysindy", val=None, t
     model = from_pysindy(sindy, variables)
     return scan(b, model, refit=make_refit(sindy, variables),
                 variants=make_variants(sindy, variables) if variants else None,
-                thresholds=thresholds, seed=seed, kinematics=kinematics)
+                thresholds=thresholds, seed=seed, kinematics=kinematics, properties=properties)
 
 
 # --------------------------------------------------------------- CLI helpers

@@ -58,8 +58,13 @@ def cmd_scan(args) -> int:
     ctx = provenance.tracked("mihenk scan", params, inputs=[args.bundle, args.model], seed=args.seed) \
         if args.daftar else nullcontext(None)
     with ctx as run:
+        props = {}
+        if args.dissipates:
+            props["dissipates"] = args.dissipates
+        if args.conserves:
+            props["conserves"] = args.conserves
         report = scan(bundle, model, refit=refit, variants=variants, thresholds=th, seed=args.seed,
-                      kinematics=args.kinematic or None)
+                      kinematics=args.kinematic or None, properties=props or None)
         out = None
         if args.out:
             out = report.save(args.out)
@@ -142,6 +147,9 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--seed", type=int, default=0)
     s.add_argument("--kinematic", action="append", metavar="P=V",
                    help="declare P' = V (e.g. theta=omega); repeatable; overrides the bundle's own pairs")
+    s.add_argument("--dissipates", metavar="H", help="declare that H(state) must not increase, "
+                   "e.g. \"0.5*omega**2 - 64*cos(theta)\"")
+    s.add_argument("--conserves", metavar="H", help="declare that H(state) is conserved")
     s.add_argument("--no-refit", action="store_true", help="skip tier-1 refits even if possible")
     s.add_argument("--daftar", action="store_true", help="record the scan with daftar")
     s.set_defaults(fn=cmd_scan)
