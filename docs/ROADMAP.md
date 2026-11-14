@@ -31,7 +31,7 @@ trustworthy, not just longer.
   - HTML, JSON, Markdown and text reports;
   - optional daftar provenance.
 - **Validation.** 7 synthetic systems and 14 validation cases. Over 20 seeds,
-  all 91 wrong laws were flagged, no correct law got an error, and 3 of 175
+  all 91 wrong laws were flagged, no correct law got an error, and 3 of 155
   correct-law runs got a warning.
 
 ### What 0.1 development taught
@@ -103,39 +103,60 @@ coefficients loosely determined.
 - **`synth`** gains a `pendulum` system and a `sensor=` option (lag, gain
   and offset for any variable). `mihenk fit` gains `--fourier N`.
 
-## Next: 0.3 — the rest of what the pendulum asked for
+### 0.3 — physics, honest long rollouts, a wider `UNDERFIT`, readable relations
 
-Ordered by what the experimental test showed, then by what was already planned.
+- **`PHYSICS_VIOLATION`** (tier 0). Declare `dissipates=H` or `conserves=H`,
+  with `properties=` or `--dissipates/--conserves`. mihenk compares H's
+  derivative-free rate of change in the data with the equation's
+  `grad H . f` along the data, and follows H along the equation's own
+  simulations. Gaining energy where the data lose it is an error; losing it
+  at under half or over twice the data's rate is a warning.
+- **`ROLLOUT_TRAP` uses twin rollouts.** Each full simulation gets a twin
+  started 10⁻⁶ of the range away. If the gap grows less than 1000-fold, the
+  equation is not chaotic on this time scale, and a full-length R² below
+  0.8 is reported as drift.
+- **`UNDERFIT` searches two polynomial degrees beyond the library.** It warns
+  from 0.1% of the signal, and an error still needs 1%.
+- **Relation search, centred and uncentred.** The relations table reports
+  θ + sin θ ≈ π instead of "1 ≈ θ".
+- **`synth`** gains `pendulum_small` and `pendulum_dry`.
+- **Tested** with predictions committed before the test seeds
+  ([experiments/physics_synthetic](../experiments/physics_synthetic/RESULTS.md)):
+  8 of 10 held. The two that failed:
+  - **Lorenz:** trajectories that stay on one lobe are non-chaotic on this
+    time scale, and one of them got a false drift warning.
+  - **A regression from the centred relation search:** one wrong law lost
+    its `EQUIFINALITY` error. It was fixed after the test by combining the
+    two searches, and the fix was checked against 0.2.0 on fresh seeds.
+- **On the experimental pendulum** (a development case): the drifting
+  rollouts are now flagged, and the relations read correctly. The energy
+  check shows that A's law is not a net energy injector, which corrects the
+  0.1.1 write-up. The degree-5 term stays below the noise, as the synthetic
+  test predicted.
 
-- **Declared physical properties.** Optional statements such as "this system
-  loses energy" (with an energy function) or "this quantity is conserved".
-  mihenk then checks them along the data and along rollouts. On the
-  pendulum, an equation whose +0.44 sin ω term injects energy passed without
-  comment.
-- **A chaos-aware long-rollout check.** Run twin rollouts from nearby starts.
-  If they stay together, the system is not chaotic on this time scale, and
-  full-length R² becomes a fair test. Otherwise keep comparing only spread
-  and mean. One of the pendulum's long rollouts had R² 0.73 and was not
-  flagged.
-- **`UNDERFIT` two degrees out, or by parity.** sin θ is odd about π, so the
-  first term a cubic misses is degree 5, and a one-degree search cannot see
-  it.
-- **Centred relation search.** When a variable barely moves around a large
-  offset (θ ≈ 3.14 ± 0.07), unit-norm columns make θ look like the constant
-  term, and the relations table reads "1 ≈ θ". Centring columns first would
-  report the relation that matters (sin θ ≈ π − θ).
+## Next: 0.4
+
+Ordered by what the 0.3 tests showed, then by what was already planned.
+
+- **Twins that also perturb the coefficients.** A twin started a hair away
+  cannot see sensitivity to the *law*. A Lorenz spiral that will jump lobes
+  at a time set by tiny coefficient errors looks non-chaotic and then
+  "drifts". Perturbing the coefficients within their uncertainty would tell
+  the two apart. This is the cause of 0.3's one false warning.
+- **Local energy injection.** `PHYSICS_VIOLATION` judges dissipation on
+  average. A law can gain energy in one region of state space and lose more
+  elsewhere. A local test has to separate a real gain from H's conservative
+  part being slightly off. Binning by speed alone does not (pendulum A).
+- **Held-out segments without motion.** Warn when held-out data barely move
+  (the pendulum at rest), since they test nothing.
 - **A second experimental system** with a different structure, such as a
   chemical oscillator or coupled oscillators, pre-registered the same way.
-- **A calibration/test split for the whole synthetic validation.** 0.2 did
-  this for `KINEMATIC_MISMATCH` (seeds 0–9 calibrate, 10–19 test, predictions
-  committed in between). The 0.1 checks still have thresholds adjusted while
+- **A calibration/test split for the 0.1 checks.** 0.2 and 0.3 did this for
+  their own checks. The 0.1 checks still have thresholds adjusted while
   looking at seeds 0–9 of the same suite they are scored on.
-- **More systems in `synth`:**
-  - a Rössler attractor;
-  - a forced Duffing oscillator;
-  - dry friction and an angle offset for the `pendulum` system. 0.2 added
-    the pendulum itself, and sensor lag, gain and offset for any variable;
-  - a higher-dimensional system.
+- **More systems in `synth`:** a Rössler attractor, a forced Duffing
+  oscillator, an angle offset for the `pendulum`, and a higher-dimensional
+  system.
 - **`mihenk design`.** Before an experiment, simulate a known law at your
   planned sampling rate, duration, noise level and number of trajectories,
   and ask whether the discovery can recover it at all. This is the idea of
@@ -171,7 +192,7 @@ Ordered by what the experimental test showed, then by what was already planned.
   statistics are screening numbers. Non-overlapping windows or a corrected
   variance would make them proper tests.
 
-## Known limits in 0.2
+## Known limits in 0.3
 
 - One mild-noise Lorenz trajectory in 20 lies close to a quadric surface. A
   constant term then appears in some refits, and mihenk warns. The law is
@@ -179,10 +200,16 @@ Ordered by what the experimental test showed, then by what was already planned.
   false alarm.
 - `ROLLOUT_TRAP` compares long-run spread and mean for chaotic systems. That
   is a coarse check, and a model with the wrong attractor shape but the right
-  moments passes it. The same coarseness lets a drifting non-chaotic rollout
-  pass (pendulum, segment 2, R² 0.73).
-- No check knows physics the user has not declared. An equation that injects
-  energy into a free pendulum is not flagged as such.
+  moments passes it.
+- `ROLLOUT_TRAP`'s twins perturb only the start, not the law (see 0.4). A
+  single Lorenz trajectory can also spend most of 10 time units on one lobe,
+  and then the long-run spread-and-mean comparison warns although the law is
+  right.
+- `PHYSICS_VIOLATION` checks only what you declare, and judges dissipation on
+  average over the data, not locally.
+- `UNDERFIT`'s two-degree search has no power once a missing term is below
+  the noise. A degree-5 term worth 0.1% of the signal was not found at 0.5%
+  noise.
 - A recording that ends at rest is used as held-out data, although it tests
   nothing. mihenk does not yet warn about held-out segments without motion.
 - `KINEMATIC_MISMATCH` corrects `v` with one lag, gain and offset per pair.

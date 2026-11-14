@@ -1,0 +1,45 @@
+noise 0.0    P1 true pendulum law             error  0  warning  0  clean 10 | median 0.997 (range 0.991 to 1)
+noise 0.0    P2 SINDy, clean pendulum         error  0  warning  0  clean 10 | median 0.997 (range 0.991 to 1)
+noise 0.0    P3 energy-injecting law          error 10  warning  0  clean  0 | median -0.427 (range -0.43 to -0.425)
+noise 0.0    P4 SINDy, omega 0.7 ms late      error  0  warning  0  clean 10 | median 0.998 (range 0.997 to 0.998)
+noise 0.0    P5 over-damped law (x3)          error  0  warning 10  clean  0 | median 2.99 (range 2.97 to 3.01)
+noise 0.0    C1 true Lotka-Volterra law       error  0  warning  0  clean 10 | median 7.65e-08 (range 3.82e-08 to 1.17e-07)
+noise 0.0    C2 SINDy, clean Lotka-Volterra   error  0  warning  0  clean 10 | median 5.02e-07 (range 1.73e-07 to 8.76e-07)
+noise 0.0    C3 law with 5% damping on x      error  0  warning 10  clean  0 | median 0.0629 (range 0.0331 to 0.155)
+noise 0.0    L1 undamped pendulum law         error  0  warning 10  clean  0 | median -0.677 (range -0.884 to 0.252)
+noise 0.0    L2 SINDy, clean pendulum         error  0  warning  0  clean 10 | median 1 (range 1 to 1)
+noise 0.0    L3 SINDy, clean Van der Pol      error  0  warning  0  clean 10 | median 1 (range 1 to 1)
+noise 0.0    L4 SINDy, clean Duffing          error  0  warning  0  clean 10 | median 1 (range 1 to 1)
+noise 0.0    L5 SINDy, Lorenz (chaotic)       error  0  warning  1  clean  9 | chaotic: 6, not chaotic: 3
+noise 0.0    U1 cubic library, large swings   error  0  warning  8  clean  2 | theta^5: 10
+noise 0.0    R1 small swings about pi         found 10  missing  0 | +0.318*theta +0.319*sin(theta) -1 ≈ 0: 5, +0.318*theta +0.318*sin(theta) -1 ≈ 0: 3
+noise 0.005  P1 true pendulum law             error  0  warning  0  clean 10 | median 0.992 (range 0.961 to 1.01)
+noise 0.005  P2 SINDy, clean pendulum         error  0  warning  0  clean 10 | median 0.991 (range 0.935 to 1.02)
+noise 0.005  P3 energy-injecting law          error 10  warning  0  clean  0 | median -0.425 (range -0.433 to -0.412)
+noise 0.005  P4 SINDy, omega 0.7 ms late      error  0  warning  0  clean 10 | median 0.993 (range 0.917 to 1.01)
+noise 0.005  P5 over-damped law (x3)          error  0  warning 10  clean  0 | median 2.98 (range 2.88 to 3.03)
+noise 0.005  C1 true Lotka-Volterra law       error  0  warning  0  clean 10 | median 6.17e-08 (range 2.88e-08 to 9.67e-08)
+noise 0.005  C2 SINDy, clean Lotka-Volterra   error  0  warning  0  clean 10 | median 0.000388 (range 0.000169 to 0.000762)
+noise 0.005  C3 law with 5% damping on x      error  0  warning 10  clean  0 | median 0.0624 (range 0.0328 to 0.155)
+noise 0.005  L1 undamped pendulum law         error  0  warning 10  clean  0 | median -0.649 (range -0.899 to 0.275)
+noise 0.005  L2 SINDy, clean pendulum         error  0  warning  0  clean 10 | median 0.999 (range 0.98 to 1)
+noise 0.005  L3 SINDy, clean Van der Pol      error  0  warning  0  clean 10 | median 1 (range 1 to 1)
+noise 0.005  L4 SINDy, clean Duffing          error  0  warning  0  clean 10 | median 1 (range 0.998 to 1)
+noise 0.005  L5 SINDy, Lorenz (chaotic)       error  1  warning  1  clean  8 | chaotic: 7, not chaotic: 3
+noise 0.005  U1 cubic library, large swings   error  0  warning  0  clean 10 | theta^5: 6, omega^3*theta: 1
+noise 0.005  R1 small swings about pi         found 10  missing  0 | +0.318*theta +0.319*sin(theta) -1 ≈ 0: 5, +0.318*theta +0.318*sin(theta) -1 ≈ 0: 3
+noise 0.01   P1 true pendulum law             error  0  warning  0  clean 10 | median 0.986 (range 0.933 to 1.03)
+noise 0.01   P2 SINDy, clean pendulum         error  0  warning  0  clean 10 | median 0.994 (range 0.84 to 1.04)
+noise 0.01   P3 energy-injecting law          error 10  warning  0  clean  0 | median -0.423 (range -0.44 to -0.4)
+noise 0.01   P4 SINDy, omega 0.7 ms late      error  0  warning  0  clean 10 | median 0.988 (range 0.839 to 1.02)
+noise 0.01   P5 over-damped law (x3)          error  0  warning 10  clean  0 | median 2.96 (range 2.8 to 3.08)
+noise 0.01   C1 true Lotka-Volterra law       error  0  warning  0  clean 10 | median 5.73e-08 (range 3.22e-08 to 8.94e-08)
+noise 0.01   C2 SINDy, clean Lotka-Volterra   error  0  warning  0  clean 10 | median 0.00108 (range 0.000333 to 0.00743)
+noise 0.01   C3 law with 5% damping on x      error  0  warning 10  clean  0 | median 0.0619 (range 0.0324 to 0.154)
+noise 0.01   L1 undamped pendulum law         error  0  warning 10  clean  0 | median -0.639 (range -0.914 to 0.296)
+noise 0.01   L2 SINDy, clean pendulum         error  0  warning  0  clean 10 | median 0.997 (range 0.847 to 1)
+noise 0.01   L3 SINDy, clean Van der Pol      error  0  warning  0  clean 10 | median 0.999 (range 0.998 to 1)
+noise 0.01   L4 SINDy, clean Duffing          error  0  warning  0  clean 10 | median 0.999 (range 0.994 to 1)
+noise 0.01   L5 SINDy, Lorenz (chaotic)       error  0  warning  1  clean  9 | chaotic: 6, not chaotic: 3
+noise 0.01   U1 cubic library, large swings   error  0  warning  0  clean 10 | theta^5: 4, omega*theta^4: 2
+noise 0.01   R1 small swings about pi         found 10  missing  0 | +0.318*theta +0.319*sin(theta) -1 ≈ 0: 5, +0.318*theta +0.318*sin(theta) -1 ≈ 0: 3

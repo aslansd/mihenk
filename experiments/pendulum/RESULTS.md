@@ -146,7 +146,10 @@ does, and the library has no `sign(ω)` term for it.
 
 ## What mihenk missed
 
-1. **An energy-injecting law passed without a word.** A's +0.44·sin ω term
+1. **An energy-injecting law passed without a word.** *(Corrected in 0.3;
+   see the 0.3 section below. The +0.44·sin ω term does add energy at
+   |ω| < π when taken alone, but A's law as a whole loses energy along the
+   data, at 74% of the data's rate.)* A's +0.44·sin ω term
    adds energy at small speeds, which is impossible for a free pendulum, and
    the equation has no damping at all. mihenk flagged the term's coefficient
    (`DERIVATIVE_ARTIFACT`: it moves to +0.27 without differentiation), but
@@ -216,6 +219,53 @@ sensor={"omega": {"delay": 7e-4}})` puts a 0.7 ms lag on a pendulum with known
 law. SINDy then returns θ' = 0.9999 ω − 0.0448 sin θ (−64 × 0.0007 = −0.0448),
 and the damping falls from −0.070 to −0.032. That is the experiment's pattern,
 now with ground truth. There, correcting ω restores the damping to −0.070.
+
+## mihenk 0.3: physics, long rollouts, two-degree `UNDERFIT`, centred relations (development case)
+
+All four 0.3 changes answer misses listed above, so applying them here is a
+**development case, not a test**. Their test is the pre-registered synthetic
+sweep in [../physics_synthetic](../physics_synthetic/RESULTS.md). Reproduce
+with `python experiments/pendulum/scripts/run_physics.py`, which declares
+θ' = ω and `dissipates H = ½ω² + 64.22 cos θ`. The reports are in
+`results/0.3-physics/`.
+
+| analysis | energy: equation rate / data rate | worst full-length R² | new flags |
+|---|---|---|---|
+| A | 0.74 | 0.73 | `ROLLOUT_TRAP` (drift) |
+| B | 0.74 | 0.75 | `ROLLOUT_TRAP` (drift) |
+| C | 1.00 | 0.98 | none new; the relations table now reads θ + sin θ ≈ π |
+| E1 | 0.99 | 0.997 | none |
+
+Here is how each earlier miss fares.
+
+1. **"An energy-injecting law passed": this overstated the problem.**
+   - A's +0.44·sin ω term, taken alone, adds energy at speeds below π rad/s.
+   - The whole law, along the data, loses energy at 74% of the rate the data
+     do: no net injection, and inside the 0.5–2 band that counts as matching.
+   - By speed band, the law gains energy only above 2π rad/s (+0.40 per unit
+     time). Below 1 rad/s it loses −1.02.
+
+   So the law has no damping term, but its other terms still dissipate, and
+   `PHYSICS_VIOLATION` correctly does not call it an injector. A check of
+   local injection, by region of state space, would have to separate a true
+   gain from the conservative part of H being slightly off (64.22 vs 63.82).
+   That is on the roadmap. It is not added here, since it would be designed
+   on these data.
+2. **The drifting long rollout is now caught.** A's segment 2 (R² 0.73) and
+   B's segment 1 (R² 0.75) are flagged. Twin rollouts call every segment
+   non-chaotic (gap growth 1.3–14×). E1, where ω comes from the angle, has
+   every R² ≥ 0.997 and is not flagged.
+3. **The degree-5 term is still not found on real data.** For B, the best
+   left-out term is ω³, which removes 1% of the residual. θ⁵ does not stand
+   out. The synthetic test predicted this: without noise θ⁵ is found in 8 of
+   10 runs, and with 0.5% noise in none. A term that small cannot be seen
+   through this recording's noise and velocity lag.
+4. **The relation report is fixed.** C's relations table leads with
+   `+0.318*theta +0.318*sin(theta) -1 ≈ 0`, which is θ + sin θ = π. The old
+   "1 ≈ θ" is gone.
+
+The two 0.2 controls stay as they were. `KINEMATIC_MISMATCH` gives an error
+on A, a warning on B, and stays clean on C and E1.
 
 ## Data license
 

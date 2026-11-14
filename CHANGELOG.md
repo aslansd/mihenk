@@ -1,9 +1,61 @@
 # Changelog
 
-## Unreleased
+## 0.3.0 — 2026-11-14
 
-GitHub only. The package code changed in one place (`Report.save`), and that
-ships with the next release.
+### Added
+- **`PHYSICS_VIOLATION`** (tier 0). Declare `{"dissipates": "H"}` or
+  `{"conserves": "H"}`, with `properties=` in `scan` and `scan_pysindy`,
+  `--dissipates` / `--conserves` on the command line, or `"properties"` in
+  the bundle's meta. mihenk compares H's derivative-free rate of change in
+  the data with the equation's `grad H . f` along the data, and follows H
+  along full simulations.
+  - Dissipation: gaining H is an error; losing it at under half or over
+    twice the data's rate is a warning.
+  - Conservation: a rate or drift above tolerance is flagged.
+
+  New thresholds: `phys_inject`, `phys_ratio_low`, `phys_ratio_high`,
+  `phys_data_min`, `phys_rollout_gain`, `phys_conserve_rel` and
+  `phys_conserve_drift`.
+- `synth`: `pendulum_small` (swings of 0.05–0.1 rad) and `pendulum_dry`
+  (smoothed Coulomb friction).
+- `experiments/physics_synthetic/`: thresholds calibrated on seeds 0–9,
+  predictions for seeds 10–19 committed before running them. 8 held,
+  2 failed (one, a regression, fixed afterwards).
+- `experiments/pendulum/scripts/run_physics.py`: the 0.3 development case on
+  the real pendulum.
+- 9 new tests (45 in total).
+
+### Changed
+- **`ROLLOUT_TRAP` uses twin rollouts.** Each full simulation gets a twin
+  started `twin_eps` (10⁻⁶) of the range away. If their gap grows less than
+  `twin_growth` (1000) times, the equation is not chaotic on this time
+  scale, and a full-length R² below `rollout_long_r2` (0.8) is a drift
+  warning. The rollouts table gains "regime" and "twin gap growth" columns.
+- **`UNDERFIT` searches `underfit_degrees` (2) polynomial degrees beyond the
+  library, not 1.** A left-out term now needs 0.1% of the signal for a
+  warning (`underfit_share`, previously 1%). An error still needs 1%
+  (`underfit_share_error`).
+- **Relations are searched twice: centred, then uncentred.** The centred
+  search reports a variable sitting on an offset correctly (θ + sin θ ≈ π
+  instead of "1 ≈ θ"). The uncentred search keeps 0.2's sensitivity.
+  - The pre-registered test found that centred-only lost one wrong law's
+    `EQUIFINALITY` error.
+  - The combined search fixes that, and was checked on seeds 0–19 and
+    fresh seeds 20–29.
+
+### Corrected
+- **A counting error since 0.1.0.** The README, ROADMAP and TESTING said the
+  synthetic validation has "9" non-pendulum clean cases with "175"
+  correct-law runs. It has 8 cases and 155 runs. The outcomes were as
+  reported: no errors, 3 warnings.
+- `experiments/pendulum/RESULTS.md` said analysis A's law "injects energy".
+  Its +0.44·sin ω term does, taken alone, at |ω| < π. But the whole law
+  loses energy along the data, at 74% of the data's rate. A dated correction
+  was added; the original text is kept.
+
+## Repository tidy-up (2026-11-13, shipped with 0.3.0)
+
+The package code changed in one place (`Report.save`).
 
 ### Changed: a tidier repository
 - `INSTALL.md`, `TESTING.md`, `PUBLISHING.md` and `ROADMAP.md` moved to

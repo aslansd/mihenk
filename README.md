@@ -78,8 +78,9 @@ mihenk scan lorenz.npz --model model.json --out report   # exit status 1 on erro
 | `EQUIFINALITY` | 0 | Another law fits the data exactly as well | Relations among candidate terms on the observed states (SVD); sparsest equally good subset; one-term swaps |
 | `DERIVATIVE_ARTIFACT` | 0 | A term or coefficient produced by differentiated noise | Refit the equation's own terms with a **derivative-free integral form** and compare signs and values |
 | `WEAK_TERM` | 0 | The data can't tell the equation with a term from without it | F statistic for dropping each term, in the integral form |
-| `UNDERFIT` | 0 | A left-out term explains much of what the equation misses | Add each library term, and each term one polynomial degree beyond the library |
-| `ROLLOUT_TRAP` | 0 | Fits derivatives but does not reproduce the system when simulated | Short rollouts from held-out states; full rollouts; escapes; long-run spread and mean |
+| `UNDERFIT` | 0 | A left-out term explains much of what the equation misses | Add each library term, and each term up to two polynomial degrees beyond the library (odd functions such as sin θ skip a degree) |
+| `ROLLOUT_TRAP` | 0 | Fits derivatives but does not reproduce the system when simulated | Short rollouts from held-out states; escapes; full rollouts with a twin started a hair away: if the twins stay together, full-length R² must hold, otherwise long-run spread and mean must |
+| `PHYSICS_VIOLATION` | 0 | The equation breaks physics you declare: it gains energy where the system dissipates it, or fails to conserve a conserved quantity | Derivative-free rate of change of H in the data vs `grad H . f` along the data, and H along the equation's own simulations |
 | `KINEMATIC_MISMATCH` | 0 | A declared pair such as θ' = ω does not hold in the data or in the equation (a lagging, scaled or biased sensor) | Derivative-free fit of `p' = gain * v(t + lag) + offset`; checks the discovered `p'` against `v`; tests whether the lag predicts the extra terms; refits the other equations with `v` corrected |
 | `UNSTABLE_STRUCTURE` | 1 | Terms come and go when the data are resampled | Bootstrap (trajectories, or blocks of one trajectory), refit through PySINDy |
 | `FORKING_PATHS` | 1 | The law depends on defensible analysis choices | Refit under other derivative methods and sparsity thresholds |
@@ -101,6 +102,25 @@ assessed*, and mihenk suggests pairs whose discovered equations look
 kinematic. On the experimental pendulum it reports that the velocity signal
 runs 0.85 ms late, and that the lag accounts for 98% of the extra terms SINDy
 put into θ'.
+
+### Declaring physics
+
+If you know the system loses energy, or conserves some quantity, say so:
+
+```python
+report = mihenk.scan_pysindy(model, x, t, properties={"dissipates": "0.5*omega**2 - 64*cos(theta)"})
+report = mihenk.scan_pysindy(model, x, t, properties={"conserves": "0.5*x - log(x) + 0.5*y - log(y)"})
+```
+
+On the command line, use `--dissipates "H"` or `--conserves "H"`. H is an
+expression in the state variables.
+
+- For `dissipates`, H needs to be only roughly right. An error in its
+  conservative part averages out over a swing.
+- For `conserves`, H must be accurate.
+
+This check does not see a velocity lag, which changes which terms carry the
+damping but not the energy budget. `KINEMATIC_MISMATCH` covers that.
 
 **Tiers** describe what evidence a check needs:
 
@@ -142,8 +162,12 @@ linear_wrong_sign                  20/20                -                    -
 
 Over these runs:
 - Every one of the 171 times SINDy returned a wrong law, mihenk flagged it. That includes 25 runs in cases meant to be clean. In 20 of those, SINDy added a small θ term next to sin θ in the clean pendulum.
-- In the 9 non-pendulum cases built to come out clean, none of the 175 correct-law runs received an error. 3 received a warning. All three are single mild-noise Lorenz trajectories lying close to a quadric surface, where a constant term appears in some refits.
+- In the 8 non-pendulum cases built to come out clean, none of the 155 correct-law runs received an error. 3 received a warning. All three are single mild-noise Lorenz trajectories lying close to a quadric surface, where a constant term appears in some refits. (Up to 0.2 this README said "9 cases" and "175 runs", a counting error; the results were the same.)
 - `KINEMATIC_MISMATCH` never fired on the clean pendulum (20 of 20) and caught the lag, gain and offset every time (60 of 60). Its separate, pre-registered calibration/test split is in [experiments/kinematic_synthetic](experiments/kinematic_synthetic/RESULTS.md).
+- 0.3 was checked against 0.2.0 run by run, on these seeds and on fresh seeds 20–29 (540 runs):
+  - no flag was lost;
+  - no run where SINDy found the true law gained a flag;
+  - 46 runs with wrong laws gained one, mostly the new long-rollout drift warning.
 
 ## Experimental data
 
@@ -181,6 +205,18 @@ extra θ' terms. Its own test is a pre-registered synthetic sweep
 
 At 1% position noise it misses half of the lags. That is a stated power
 limit.
+
+mihenk 0.3 adds the checks for the other misses: declared physics, twin long
+rollouts, a two-degree `UNDERFIT` and centred relations. They were tested on
+a pre-registered synthetic sweep
+([experiments/physics_synthetic](experiments/physics_synthetic/RESULTS.md)),
+where 8 of 10 predictions held as committed, and one failure was a regression that was then fixed. On the pendulum:
+
+- **Now flagged:** the drifting rollouts.
+- **Now correct:** the small-swing relation reads θ + sin θ ≈ π.
+- **A correction to our own write-up:** the energy check shows SINDy's law
+  is not a net energy injector. It loses energy at 74% of the data's rate.
+- **Still out of reach:** the degree-5 term is below this recording's noise.
 
 ## Limits (read these)
 

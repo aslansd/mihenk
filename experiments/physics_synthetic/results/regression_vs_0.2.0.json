@@ -1,0 +1,5843 @@
+{
+ "lorenz_clean|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|6": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|11": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|12": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|15": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|16": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|18": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|19": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|20": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|24": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|27": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|28": {
+  "0.2.0": [
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_clean|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|6": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|11": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|12": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|15": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|16": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|18": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|19": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|20": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|24": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|27": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|28": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise1|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|6": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|11": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|12": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|15": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|16": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|18": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|19": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|20": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|24": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|27": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|28": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_clean|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|6": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|11": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|12": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|15": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|18": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|19": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|20": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|24": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|27": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|28": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_clean|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|6": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|11": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|12": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|15": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|16": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|18": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|19": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|20": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|24": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|27": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|28": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_clean|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|6": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|11": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|12": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|15": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|16": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|18": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|19": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|20": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|24": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|27": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|28": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_many|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|6": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|11": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|12": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|15": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|16": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|18": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|19": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|20": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|24": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|27": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|28": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_many|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|0": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|1": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|2": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|3": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|4": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|5": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|6": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|7": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|8": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|9": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|10": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|11": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|12": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|13": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|14": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|15": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|16": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|17": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|18": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|19": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|20": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|21": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|22": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|23": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|24": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|25": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|26": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|27": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|28": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "stuart_landau_on_cycle|29": {
+  "0.2.0": [
+   "EQUIFINALITY"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|0": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|1": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|2": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|3": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|4": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|5": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|6": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|7": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|8": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|9": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|10": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|11": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|12": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|13": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|14": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|15": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|16": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|17": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|18": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|19": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|20": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|21": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|22": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|23": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|24": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|25": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|26": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|27": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|28": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit|29": {
+  "0.2.0": [],
+  "0.3.0": [],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|0": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|1": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|2": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|3": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|4": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|5": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|6": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|7": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|8": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|9": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|10": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|11": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|12": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|13": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|14": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|15": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|16": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|17": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|18": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|19": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|20": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|21": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|22": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|23": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|24": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|25": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|26": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|27": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lotka_volterra_one_orbit_noisy|29": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|0": {
+  "0.2.0": [
+   "UNDERFIT"
+  ],
+  "0.3.0": [
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|1": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|2": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|3": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|4": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|5": {
+  "0.2.0": [
+   "FORKING_PATHS",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|6": {
+  "0.2.0": [
+   "UNDERFIT"
+  ],
+  "0.3.0": [
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|7": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|8": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|9": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|11": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|12": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|13": {
+  "0.2.0": [
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|14": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|15": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|16": {
+  "0.2.0": [
+   "UNDERFIT"
+  ],
+  "0.3.0": [
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|17": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|18": {
+  "0.2.0": [
+   "FORKING_PATHS",
+   "UNDERFIT"
+  ],
+  "0.3.0": [
+   "FORKING_PATHS",
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|19": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|20": {
+  "0.2.0": [
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|21": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|22": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|23": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|24": {
+  "0.2.0": [
+   "UNDERFIT"
+  ],
+  "0.3.0": [
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|25": {
+  "0.2.0": [
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|26": {
+  "0.2.0": [
+   "UNDERFIT"
+  ],
+  "0.3.0": [
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|27": {
+  "0.2.0": [
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|28": {
+  "0.2.0": [
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "duffing_small_library|29": {
+  "0.2.0": [
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "ROLLOUT_TRAP",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|0": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|1": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|2": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|3": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|4": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|5": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|6": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|7": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|8": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|9": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|11": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|12": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|13": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|14": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|15": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|17": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|18": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|19": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|20": {
+  "0.2.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "EQUIFINALITY",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|21": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|22": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|23": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|24": {
+  "0.2.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|25": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|26": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|27": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "lorenz_noise5_low_threshold|29": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|0": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|1": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|2": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|3": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|4": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|5": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|6": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|7": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|8": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|9": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|11": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|12": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|13": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|14": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|15": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|17": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|18": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|19": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|20": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|21": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|22": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|23": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|24": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|25": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|26": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|27": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "van_der_pol_noise10|29": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "ROLLOUT_TRAP",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|0": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|1": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|2": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|3": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|4": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|5": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|6": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|7": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|8": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|9": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|11": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|12": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|13": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|14": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|15": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|17": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|18": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|19": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|20": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|21": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|22": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|23": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|24": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|25": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|26": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|27": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_kinematics_clean|29": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|0": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|1": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "KINEMATIC_MISMATCH"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|2": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|3": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|4": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|5": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|6": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|7": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|8": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "KINEMATIC_MISMATCH"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|9": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|11": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|12": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "KINEMATIC_MISMATCH"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|13": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|14": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|15": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|17": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|18": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|19": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|20": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|21": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|22": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|23": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|24": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|25": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|26": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|27": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNDERFIT",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_lag|29": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|0": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|1": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|2": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|3": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|4": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|5": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|6": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|7": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|8": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|9": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|11": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|12": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|13": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|14": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|15": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|17": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|18": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|19": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|20": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|21": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|22": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|23": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|24": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|25": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|26": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|27": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_gain|29": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|0": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|1": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|2": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|3": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|4": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|5": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|6": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|7": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|8": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|9": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|11": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|12": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|13": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|14": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|15": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|17": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|18": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|19": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|20": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|21": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|22": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|23": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|24": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|25": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|26": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|27": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "pendulum_velocity_offset|29": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "FORKING_PATHS",
+   "KINEMATIC_MISMATCH",
+   "UNSTABLE_STRUCTURE",
+   "WEAK_TERM"
+  ],
+  "truth_correct": false,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|0": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|1": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|2": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|3": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|4": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|5": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|6": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|7": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|8": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|9": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|10": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|11": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|12": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|13": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|14": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|15": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|16": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|17": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|18": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|19": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|20": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|21": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|22": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|23": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|24": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|25": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|26": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|27": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|28": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ },
+ "linear_wrong_sign|29": {
+  "0.2.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "0.3.0": [
+   "DERIVATIVE_ARTIFACT",
+   "ROLLOUT_TRAP"
+  ],
+  "truth_correct": true,
+  "passed_0.3.0": true
+ }
+}

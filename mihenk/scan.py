@@ -320,42 +320,73 @@ def _check_weak_terms(ctx: _Context, findings, checks):
 def _find_relations(ctx: _Context):
     """Combinations of candidate terms that are (nearly) constant on the observed states.
 
-    Columns are centred before the search, so a variable that barely moves
-    around a large offset (theta = 3.14 +- 0.07) is not mistaken for the
-    constant term. The constant enters each relation through the combination's
-    mean: sin(theta) + theta - pi = 0 is found as such, not as "1 = theta".
+    Two searches, combined:
+
+    * **centred**: columns are centred first, so a variable that barely moves
+      around a large offset (theta = 3.14 +- 0.07) is not mistaken for the
+      constant term. The constant enters through the combination's mean, and
+      sin(theta) + theta - pi = 0 is found as such, not as "1 = theta";
+    * **uncentred** (unit-norm columns, as in mihenk 0.1-0.2): more sensitive
+      when variables sit on an offset, e.g. a single orbit lying near an
+      ellipse. An uncentred relation is kept only if its terms are not a
+      subset of a centred relation's terms.
     """
+    centred = _relations_centred(ctx)
+    uncentred = _relations_uncentred(ctx)
+    relations = list(centred)
+    for r in uncentred:
+        if not any(r[2] <= c[2] for c in centred):
+            relations.append(r)
+    ctx.relations = relations
+    ctx.related = set().union(*[r[2] for r in relations]) if relations else set()
+
+
+def _relations_uncentred(ctx: _Context) -> list:
+    lib, th = ctx.library, ctx.th
+    Z = N.normalized_columns(ctx.theta_ref)
+    _, s, Vt = np.linalg.svd(Z, full_matrices=False)  # unit-norm columns: s is the relation's relative size
+    out = []
+    for sv, v in zip(s[::-1], Vt[::-1]):
+        if sv >= th.nullspace_tol:
+            break
+        v = v / np.max(np.abs(v))
+        support = [c for c in range(len(lib)) if abs(v[c]) > 0.05]
+        out.append((float(sv), {lib[c]: float(v[c]) for c in support}, set(support)))
+    return out
+
+
+def _relations_centred(ctx: _Context) -> list:
     lib, th = ctx.library, ctx.th
     T = ctx.theta_ref
     moving = [c for c in range(len(lib)) if np.ptp(T[:, c]) > 0]
     const = [c for c in range(len(lib)) if lib[c] == 1]
-    relations = []
-    if len(moving) >= 2:
-        means = T[:, moving].mean(axis=0)
-        C = T[:, moving] - means
-        norms = np.linalg.norm(C, axis=0)
-        norms[norms == 0] = 1.0
-        _, s, Vt = np.linalg.svd(C / norms, full_matrices=False)
-        for sv, v in zip(s[::-1], Vt[::-1]):
-            if sv >= th.nullspace_tol:
-                break
-            v = v / np.max(np.abs(v))
-            keep = [k for k in range(len(moving)) if abs(v[k]) > 0.05]   # judged on the variation
-            a = v / norms                                   # the same relation in the data's units
-            offset = float(a[keep] @ means[keep])           # sum a_j theta_j = offset on the data
-            coef = {lib[moving[k]]: float(a[k]) for k in keep}
-            support = {moving[k] for k in keep}
-            if const:
-                coef[lib[const[0]]] = -offset
-            top = max(abs(x) for x in coef.values())
-            coef = {t: x / top for t, x in coef.items()}
-            if const and abs(coef[lib[const[0]]]) > 0.05:  # the constant follows the same 5% rule
-                support.add(const[0])
-            elif const:
-                coef.pop(lib[const[0]])
-            relations.append((float(sv), coef, support))
-    ctx.relations = relations
-    ctx.related = set().union(*[r[2] for r in relations]) if relations else set()
+    out = []
+    if len(moving) < 2:
+        return out
+    means = T[:, moving].mean(axis=0)
+    C = T[:, moving] - means
+    norms = np.linalg.norm(C, axis=0)
+    norms[norms == 0] = 1.0
+    _, s, Vt = np.linalg.svd(C / norms, full_matrices=False)
+    for sv, v in zip(s[::-1], Vt[::-1]):
+        if sv >= th.nullspace_tol:
+            break
+        v = v / np.max(np.abs(v))
+        keep = [k for k in range(len(moving)) if abs(v[k]) > 0.05]   # judged on the variation
+        a = v / norms                                   # the same relation in the data's units
+        offset = float(a[keep] @ means[keep])           # sum a_j theta_j = offset on the data
+        coef = {lib[moving[k]]: float(a[k]) for k in keep}
+        support = {moving[k] for k in keep}
+        if const:
+            coef[lib[const[0]]] = -offset
+        top = max(abs(x) for x in coef.values())
+        coef = {t: x / top for t, x in coef.items()}
+        if const and abs(coef[lib[const[0]]]) > 0.05:  # the constant follows the same 5% rule
+            support.add(const[0])
+        elif const:
+            coef.pop(lib[const[0]])
+        out.append((float(sv), coef, support))
+    return out
 
 
 def _fmt_rhs(terms, coefs) -> str:

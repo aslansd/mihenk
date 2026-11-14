@@ -273,3 +273,91 @@ def test_report_save_formats(tmp_path):
     assert sorted(p.name for p in out.iterdir()) == ["report.html", "report.json"]
     with pytest.raises(ValueError, match="unknown report format"):
         r.save(tmp_path / "bad", formats=("pdf",))
+
+
+# ------------------------------------------------------- 0.3: physics, rollouts, underfit, relations
+from mihenk.physics import validate_properties  # noqa: E402
+
+H_PEND = "0.5*omega**2 - 64*cos(theta)"
+H_LV = "0.5*x - log(x) + 0.5*y - log(y)"
+
+
+def _phys(r):
+    return {c.id: c.status for c in r.checks}["PHYSICS_VIOLATION"], r.by_id("PHYSICS_VIOLATION")
+
+
+def test_properties_parse_and_reject():
+    assert set(validate_properties({"dissipates": H_PEND}, ["theta", "omega"])) == {"dissipates"}
+    assert set(validate_properties([f"conserves={H_LV}"], ["x", "y"])) == {"conserves"}
+    with pytest.raises(ValueError, match="unknown property"):
+        validate_properties({"heats": "x"}, ["x"])
+    with pytest.raises(ValueError, match="unknown symbol"):
+        validate_properties({"dissipates": "0.5*omega**2 - g*cos(theta)"}, ["theta", "omega"])
+
+
+def test_physics_not_assessed_without_declaration():
+    r = scan(synth.simulate("pendulum"), synth.truth_model("pendulum"))
+    assert _phys(r)[0] == "not_assessed"
+
+
+def test_dissipation_true_law_clean_injection_error_overdamping_warning():
+    b = synth.simulate("pendulum")
+    props = {"dissipates": H_PEND}
+    assert _phys(scan(b, synth.truth_model("pendulum"), properties=props))[0] == "clean"
+    inject = Model.from_text("theta' = omega\nomega' = -64 sin(theta) + 0.03 omega", variables=b.variables)
+    status, f = _phys(scan(b, inject, properties=props))
+    assert status == "flagged" and f[0].severity == "error" and "gains" in f[0].what
+    over = Model.from_text("theta' = omega\nomega' = -64 sin(theta) - 0.21 omega", variables=b.variables)
+    status, f = _phys(scan(b, over, properties=props))
+    assert status == "flagged" and f[0].severity == "warning"
+
+
+def test_conservation_true_law_clean_damped_flagged():
+    b = synth.simulate("lotka_volterra")
+    props = {"conserves": H_LV}
+    assert _phys(scan(b, synth.truth_model("lotka_volterra"), properties=props))[0] == "clean"
+    damped = Model.from_text("x' = 0.95 x - 0.5 x y\ny' = -y + 0.5 x y", variables=b.variables)
+    assert _phys(scan(b, damped, properties=props))[0] == "flagged"
+
+
+def test_long_rollout_drift_flagged_for_undamped_pendulum():
+    b = synth.simulate("pendulum")
+    m = Model.from_text("theta' = omega\nomega' = -64 sin(theta)", variables=b.variables)
+    r = scan(b, m, kinematics={})
+    assert any("drifts away" in f.what for f in r.by_id("ROLLOUT_TRAP"))
+
+
+def test_twin_rollouts_classify_lorenz_as_chaotic():
+    r = scan(synth.simulate("lorenz"), synth.truth_model("lorenz"))
+    full = [row for row in r.details["Rollouts (integrating the equation)"]["rows"] if row[1] == "full"]
+    assert full[0][5].startswith("chaotic") and full[0][6] > 1000
+    assert not any("drifts away" in f.what for f in r.by_id("ROLLOUT_TRAP"))
+
+
+@needs_pysindy
+def test_underfit_finds_degree_five_beyond_cubic_library():
+    # theta^5 is the best left-out term for every seed; it passes the warning gate in about
+    # 8 of 10 (experiments/physics_synthetic). Seed 1 is one that passes.
+    b = synth.simulate("pendulum", seed=1)
+    _, m = A.fit_bundle(b, degree=3, threshold=0.02)
+    r = scan(b, m, kinematics={})
+    rows = r.details["Best left-out term per equation"]["rows"]
+    assert max(rows, key=lambda row: row[3])[1] == "theta^5"
+    assert [f for f in r.by_id("UNDERFIT") if "theta^5" in f.where]
+
+
+def test_centred_relation_reports_sin_theta_about_pi():
+    b = synth.simulate("pendulum_small", sensor={"theta": {"offset": float(np.pi)}})
+    m = Model.from_text("theta' = omega\nomega' = 64 sin(theta)", variables=b.variables,)
+    m.library = [parse_term(t, b.variables) for t in ["1", "theta", "omega", "sin(theta)", "cos(theta)"]]
+    r = scan(b, m, kinematics={})
+    rows = r.details["Relations among candidate terms on your data"]["rows"]
+    assert any("sin(theta)" in row[0] and "theta" in row[0].replace("sin(theta)", "") for row in rows)
+    assert not any(row[0].replace(" ", "") in ("+1*theta-1≈0", "-1*theta+1≈0") for row in rows)
+
+
+def test_cli_dissipates_flag(tmp_path):
+    synth.simulate("pendulum").save(tmp_path / "p.npz")
+    (tmp_path / "eq.txt").write_text("theta' = omega\nomega' = -64 sin(theta) + 0.03 omega\n")
+    r = _cli("scan", "p.npz", "--model", "eq.txt", "--dissipates", H_PEND, cwd=tmp_path)
+    assert r.returncode == 1 and "PHYSICS_VIOLATION" in r.stdout, r.stdout + r.stderr

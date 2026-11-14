@@ -1,0 +1,260 @@
+{
+  "A": {
+    "equation": "theta' = 0.134 - 0.04273 theta + 0.9999 omega\nomega' = 0.4616 - 0.1941 theta + 63.82 sin(theta) - 0.2435 cos(theta) + 0.4428 sin(omega)",
+    "flags": {
+      "DERIVATIVE_ARTIFACT": "warning",
+      "WEAK_TERM": "warning",
+      "ROLLOUT_TRAP": "warning",
+      "KINEMATIC_MISMATCH": "error",
+      "UNSTABLE_STRUCTURE": "warning",
+      "FORKING_PATHS": "warning"
+    },
+    "physics": {
+      "data dH/dt": -1.221845767881052,
+      "equation dH/dt": -0.9011869905147889,
+      "rollout gain": 0.004224314393010352
+    },
+    "physics_finding": "",
+    "long_rollouts": [
+      [
+        "trajectory 0",
+        0.9902773202298618,
+        "not chaotic (R\u00b2 counts)",
+        10.188589580757744
+      ],
+      [
+        "trajectory 1",
+        0.7327824350890162,
+        "not chaotic (R\u00b2 counts)",
+        7.801429639153002
+      ],
+      [
+        "trajectory 2",
+        0.9971669989981122,
+        "not chaotic (R\u00b2 counts)",
+        5.735751219671366
+      ],
+      [
+        "trajectory 3",
+        0.9889554850633051,
+        "not chaotic (R\u00b2 counts)",
+        1.3479143548147632
+      ],
+      [
+        "trajectory 4",
+        0.999151252018865,
+        "not chaotic (R\u00b2 counts)",
+        1.4526344995850398
+      ],
+      [
+        "trajectory 5",
+        0.9755141361907176,
+        "not chaotic (R\u00b2 counts)",
+        1.6303317074701165
+      ]
+    ],
+    "rollout_finding": "Simulated over the whole trajectory, the equation drifts away from the data (worst full-length R\u00b2 0.733, below 0.8; 1 of 6 trajectories). Twin simulations started a hair apart stay together (their gap grows only 7.8-fold), so the equation is not chaotic here and the drift is not sensitivity to the start.",
+    "underfit": [
+      [
+        "theta'",
+        "sin(theta)",
+        0.01879575755191465,
+        6.043746681557504e-05
+      ],
+      [
+        "omega'",
+        "omega^3",
+        0.011299193714174538,
+        0.000180423298229057
+      ]
+    ],
+    "underfit_finding": "",
+    "relations": []
+  },
+  "B": {
+    "equation": "theta' = 0.134 - 0.04273 theta + 0.9999 omega\nomega' = -92.43 + 214.9 theta - 88.51 theta^2 + 9.38 theta^3",
+    "flags": {
+      "EQUIFINALITY": "error",
+      "ROLLOUT_TRAP": "warning",
+      "KINEMATIC_MISMATCH": "warning",
+      "UNSTABLE_STRUCTURE": "warning",
+      "FORKING_PATHS": "warning"
+    },
+    "physics": {
+      "data dH/dt": -1.221845767881052,
+      "equation dH/dt": -0.9052422591881563,
+      "rollout gain": 0.0007389940244742038
+    },
+    "physics_finding": "",
+    "long_rollouts": [
+      [
+        "trajectory 0",
+        0.7457031046420162,
+        "not chaotic (R\u00b2 counts)",
+        14.298131862037014
+      ],
+      [
+        "trajectory 1",
+        0.9894081912871665,
+        "not chaotic (R\u00b2 counts)",
+        7.649601858740957
+      ],
+      [
+        "trajectory 2",
+        0.9925200507799673,
+        "not chaotic (R\u00b2 counts)",
+        4.056418641508707
+      ],
+      [
+        "trajectory 3",
+        0.989793380613891,
+        "not chaotic (R\u00b2 counts)",
+        1.9552302004656648
+      ],
+      [
+        "trajectory 4",
+        0.9888904458853226,
+        "not chaotic (R\u00b2 counts)",
+        1.527128932601517
+      ],
+      [
+        "trajectory 5",
+        0.9879476787182366,
+        "not chaotic (R\u00b2 counts)",
+        1.469270736005624
+      ]
+    ],
+    "rollout_finding": "Simulated over the whole trajectory, the equation drifts away from the data (worst full-length R\u00b2 0.746, below 0.8; 1 of 6 trajectories). Twin simulations started a hair apart stay together (their gap grows only 14.3-fold), so the equation is not chaotic here and the drift is not sensitivity to the start.",
+    "underfit": [
+      [
+        "theta'",
+        "omega^2*theta^3",
+        0.014954836274874261,
+        4.808704403632844e-05
+      ],
+      [
+        "omega'",
+        "omega^3",
+        0.010624646618079603,
+        0.0001829919486355229
+      ]
+    ],
+    "underfit_finding": "",
+    "relations": [
+      "+1*theta -0.328*theta^2 +0.0345*theta^3 -0.972 \u2248 0"
+    ]
+  },
+  "C": {
+    "equation": "theta' = 0.9916 omega + 0.008537 sin(omega)\nomega' = 23.15 + 3.933 theta + 15.36 omega + 68.86 sin(theta) + 35.36 cos(theta) - 16.31 sin(omega) - 0.1821 cos(omega)",
+    "flags": {
+      "EQUIFINALITY": "error",
+      "UNSTABLE_STRUCTURE": "error",
+      "FORKING_PATHS": "warning"
+    },
+    "physics": {
+      "data dH/dt": -0.007076154223846085,
+      "equation dH/dt": -0.007076683780411283,
+      "rollout gain": 0.0
+    },
+    "physics_finding": "",
+    "long_rollouts": [
+      [
+        "trajectory 0",
+        0.9819808107041004,
+        "not chaotic (R\u00b2 counts)",
+        1.4828032225875216
+      ]
+    ],
+    "rollout_finding": "",
+    "underfit": [
+      [
+        "theta'",
+        "omega^3*theta",
+        0.0010193492267918103,
+        5.41421528614911e-06
+      ],
+      [
+        "omega'",
+        "omega^3",
+        0.012083805524739422,
+        0.0012840125086003525
+      ]
+    ],
+    "underfit_finding": "",
+    "relations": [
+      "+0.318*theta +0.318*sin(theta) -1 \u2248 0",
+      "-0.976*omega +1*sin(omega) \u2248 0",
+      "-0.497 -0.498*theta -1*cos(theta) \u2248 0",
+      "+0.0632 +0.0632*theta -1*omega -0.0597*cos(theta) +1*sin(omega) -0.186*cos(omega) \u2248 0"
+    ]
+  },
+  "E1": {
+    "equation": "theta' = omega\nomega' = 0.1025 - 0.07709 theta - 0.05721 omega + 63.95 sin(theta) - 0.2234 cos(theta) - 0.05026 sin(omega)",
+    "flags": {
+      "DERIVATIVE_ARTIFACT": "error",
+      "WEAK_TERM": "warning",
+      "FORKING_PATHS": "warning"
+    },
+    "physics": {
+      "data dH/dt": -1.2266830878666546,
+      "equation dH/dt": -1.2137639168502528,
+      "rollout gain": 0.0
+    },
+    "physics_finding": "",
+    "long_rollouts": [
+      [
+        "trajectory 0",
+        0.9974147455781425,
+        "not chaotic (R\u00b2 counts)",
+        11.752358260658927
+      ],
+      [
+        "trajectory 1",
+        0.9974908864438353,
+        "not chaotic (R\u00b2 counts)",
+        6.751447670048219
+      ],
+      [
+        "trajectory 2",
+        0.9998312951518592,
+        "not chaotic (R\u00b2 counts)",
+        3.6964220947917052
+      ],
+      [
+        "trajectory 3",
+        0.9994743241319051,
+        "not chaotic (R\u00b2 counts)",
+        2.038181128747449
+      ],
+      [
+        "trajectory 4",
+        0.9992642890065805,
+        "not chaotic (R\u00b2 counts)",
+        1.5671455493784439
+      ],
+      [
+        "trajectory 5",
+        0.9984947373764436,
+        "not chaotic (R\u00b2 counts)",
+        1.471350137929183
+      ]
+    ],
+    "rollout_finding": "",
+    "underfit": [
+      [
+        "theta'",
+        "omega^4",
+        0.0003491448168043698,
+        6.255301659503139e-08
+      ],
+      [
+        "omega'",
+        "omega^4",
+        0.006273403203508443,
+        5.126752237468828e-05
+      ]
+    ],
+    "underfit_finding": "",
+    "relations": []
+  }
+}

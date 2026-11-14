@@ -19,10 +19,10 @@ pip install -e ".[test]"
 python -m pytest -q
 ```
 
-35 tests, under a minute on a laptop CPU.
+45 tests, under a minute on a laptop CPU.
 
-- With PySINDy installed, all 35 must pass.
-- Without PySINDy, 29 pass and 6 are skipped with the reason `needs PySINDy`.
+- With PySINDy installed, all 45 must pass.
+- Without PySINDy, 38 pass and 7 are skipped with the reason `needs PySINDy`.
   That is expected. The core checks need only numpy, scipy and sympy, and they
   are tested on their own.
 - If you see `1 skipped` and nothing else, you have a test file older than
@@ -63,6 +63,18 @@ What the suite pins down:
     correcting ω restores the damping to −0.07.
   - The `kinematics=` argument overrides the bundle's meta.
   - The CLI `--kinematic` flag works.
+- **0.3 checks.**
+  - Property declarations parse, and bad ones are rejected. No declaration
+    means *not assessed*.
+  - A true pendulum law is clean, an anti-damped law is an error, and an
+    over-damped law is a warning. The true Lotka–Volterra law conserves H,
+    and a damped one is flagged.
+  - An undamped pendulum's long rollout is flagged as drift, and Lorenz is
+    classified chaotic.
+  - A cubic library on a large-swing pendulum makes θ⁵ the best left-out
+    term, and `UNDERFIT` warns.
+  - Small swings about π report the relation with θ and sin θ, not "1 ≈ θ".
+  - The CLI `--dissipates` flag works.
 - **Rollouts on resting data.** A held-out segment where the system is at
   rest gives a finite R² (the 0.1.0 bug found by the pendulum test).
 - **CLI.**
@@ -102,7 +114,8 @@ The README quotes the 20-seed table for 0.1.0:
 - 280/280 runs pass.
 - All 91 wrong laws are flagged.
 - No correct law gets an error.
-- 3 of 175 correct-law runs get a warning.
+- 3 of 155 correct-law runs get a warning (earlier versions of this file said
+  175, a counting error).
 
 **Caveat.** Thresholds were adjusted while looking at seeds 0–9, so seeds
 10–19 are the only part of that table that played no role in calibration.
@@ -136,12 +149,22 @@ Thresholds come from seeds 0–9 only (`sweep.py 0 10`). If you change a
 `kin_` threshold, the 10–19 numbers stop being a test. Calibrate on new
 seeds, and pre-register again before running fresh test seeds.
 
+The 0.3 checks have their own pre-registered sweep:
+
+```bash
+python experiments/physics_synthetic/scripts/sweep.py 10 20     # about 2 minutes
+```
+
+Compare it with `experiments/physics_synthetic/results/test_seeds_10-19.txt`.
+The same rule applies: thresholds come from seeds 0–9 only.
+
 ## 4. Experimental data
 
 ```bash
 python experiments/pendulum/scripts/run.py             # analyses A, B, C of PROTOCOL.md, about 10 seconds
 python experiments/pendulum/scripts/explore_lag.py     # the exploratory follow-up, E1
 python experiments/pendulum/scripts/run_kinematics.py  # 0.2: KINEMATIC_MISMATCH on A, B, C, E1
+python experiments/pendulum/scripts/run_physics.py     # 0.3: declared physics, long rollouts, relations
 ```
 
 The bundles are committed, so these run offline. `prepare.py` rebuilds them
@@ -161,7 +184,7 @@ its first fit.
 
 ## Before a release
 
-1. `python -m pytest -q` is green, with PySINDy installed (35 passed).
+1. `python -m pytest -q` is green, with PySINDy installed (45 passed).
 2. `mihenk validate --seeds 20` is green. If a detector or threshold changed,
    paste the new table into the README.
 3. `python experiments/pendulum/scripts/run.py` gives the flags in the table above,
